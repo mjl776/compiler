@@ -1,0 +1,38 @@
+nav {
+    float: right;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-box {
+    float: left;
+    padding: 8px;
+    border: 1px solid black;
+    margin-top: 17px;
+    margin-right: 16px;
+    font-size: 17px;
+}  
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+    position: relative;
+}
+
+.compiler {
+    float: left;
+    padding: 15px;
+    font-size: 40px;
+    
+}
+
