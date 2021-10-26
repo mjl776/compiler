@@ -3,8 +3,8 @@
 }
 
 header {
-  background-color: #008B8B;
-  color:black;
+  background-color: darkblue;
+  color:lightblue;
   overflow:auto;
   padding: 20px;
 }
