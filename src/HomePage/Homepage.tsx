@@ -1,14 +1,10 @@
-import React from 'react';
-import Nav from '../HomePage/Nav'
+import React from 'react'
+
 const Homepage = () => {
     return (
         <div>
-            <header className = "navbar">
-                <div className = "compiler">Compiler</div>
-                <Nav></Nav>
-            </header>
+            Welcome to Homepage
         </div>
     );
 }
-
 export default Homepage;

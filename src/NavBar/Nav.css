@@ -36,3 +36,9 @@ nav li {
     
 }
 
+header {
+    background-color: darkblue;
+    color:lightblue;
+    overflow:auto;
+    padding: 20px;
+  }
