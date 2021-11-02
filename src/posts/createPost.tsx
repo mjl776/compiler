@@ -1,29 +1,54 @@
 import  React, { useState, useEffect } from 'react';
 import {
     collection,
-    getDocs,
     addDoc,
-    updateDoc,
-    deleteDoc,
-    doc,
 } from "firebase/firestore";
-import firebase from '../firebase/firebase'
-
+import db from '../firebase/firebase'
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
     const [newPostTitle, setNewPostTitle] = useState("");
     const [newPostText, setNewPostText] = useState("");
-    const db = firebase.firestore();
+    const [newAuthor, setNewAuthor] = useState("");
+
+    // Intialize user collection reference 
+    const postsCollectionRef = collection(db, "posts");
+
     // Initialize values for code 
     const createPost = async () => {
-        
+        await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor })
     }
 
 
     return (
-        <div>
-            test
+        <div className="post-form">
+            <input 
+                type = "text"
+                placeholder = "Post title..."
+                onChange = {(event) =>{
+                    setNewPostTitle(event.target.value);
+                }}
+            />
+
+            <input 
+                className = "post-text"
+                type = "text"
+                placeholder = "Post text..."
+                onChange = {(event) =>{
+                    setNewPostText(event.target.value);
+                }}
+            />
+
+            <input 
+                type = "text"
+                placeholder = "Author..."
+                onChange = {(event) =>{
+                    setNewAuthor(event.target.value);
+                }}
+            /> 
+
+            <button onClick={createPost}> Create Post</button>         
+
         </div>
     );
 }
