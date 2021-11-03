@@ -14,7 +14,7 @@ const CreatePost = () => {
     // Intialize user collection reference 
     const postsCollectionRef = collection(db, "posts");
 
-    // Initialize values for code 
+    // return values for our database  
     const createPost = async () => {
         await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor })
     }
