@@ -11,8 +11,8 @@ const Nav = () => {
                         <motion.li whileHover = {{ scale: 1.1 }}> <NavLink to = "/"> Explorer Page</NavLink></motion.li>
                         <motion.li whileHover = {{ scale: 1.1 }}> <NavLink to = "/Create-Posts"> Posts </NavLink> </motion.li>
                         <motion.li whileHover = {{ scale: 1.1 }}> <NavLink to = "/Sign-in"> Sign In </NavLink> </motion.li>
-                        <motion.li whileHover = {{ scale: 1.1 }}> <NavLink to = "/Sign-out"> Sign Out </NavLink> </motion.li>
-                        <input type = "text" className = "text-box" placeholder = "Search Restaurants..."/>      
+                        <motion.li whileHover = {{ scale: 1.1 }}> <NavLink to = "/Sign-up"> Sign up </NavLink> </motion.li>
+                        <input type = "text" className = "text-box" placeholder = "Search..."/>      
                     </ul>
                 </nav>
             </Router>
