@@ -8,3 +8,17 @@
 p {
     padding: 5px;
 }
+
+.create-post-button {
+    color: lightblue;
+    background-color: darkblue;
+    width: 80px;
+}
+
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    height:150px;
+    width: 147px;
+}

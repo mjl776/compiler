@@ -40,14 +40,14 @@ const CreatePost = () => {
             </p>
 
             <p>
-            <input 
+            <textarea
                 className = "post-text"
-                type = "text"
-                placeholder = "Post text..."
+                placeholder="Post text..."
                 onChange = {(event) =>{
                     setNewPostText(event.target.value);
                 }}
-            />
+            >
+            </textarea>
             </p>
             <p>
             <input 
@@ -59,7 +59,7 @@ const CreatePost = () => {
             /> 
             </p>
 
-            <button onClick={createPost}> Create Post</button>         
+            <button onClick={createPost} className = "create-post-button"> Create Post</button>         
 
         </div>
     );
