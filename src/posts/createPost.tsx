@@ -4,6 +4,8 @@ import {
     addDoc,
 } from "firebase/firestore";
 import db from '../firebase/firebase'
+import "./createPost.css"
+
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
@@ -22,14 +24,22 @@ const CreatePost = () => {
 
     return (
         <div className="post-form">
-            <input 
-                type = "text"
-                placeholder = "Post title..."
-                onChange = {(event) =>{
-                    setNewPostTitle(event.target.value);
-                }}
-            />
 
+            <div className = "create-post-title">
+                Create a New Post
+            </div>            
+
+            <p>
+                <input 
+                    type = "text"
+                    placeholder = "Post title..."
+                    onChange = {(event) =>{
+                        setNewPostTitle(event.target.value);
+                    }}
+                />
+            </p>
+
+            <p>
             <input 
                 className = "post-text"
                 type = "text"
@@ -38,7 +48,8 @@ const CreatePost = () => {
                     setNewPostText(event.target.value);
                 }}
             />
-
+            </p>
+            <p>
             <input 
                 type = "text"
                 placeholder = "Author..."
@@ -46,6 +57,7 @@ const CreatePost = () => {
                     setNewAuthor(event.target.value);
                 }}
             /> 
+            </p>
 
             <button onClick={createPost}> Create Post</button>         
 
