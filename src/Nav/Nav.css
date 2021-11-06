@@ -1,6 +1,12 @@
 nav {
     float: right;
 }
+header {
+    background-color: darkblue;
+    color:lightblue;
+    overflow:auto;
+    padding: 20px;
+}
 
 .container {
     width: 80%;
