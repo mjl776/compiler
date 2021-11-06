@@ -1,14 +1,13 @@
 import React from 'react';
-import Nav from '../HomePage/Nav'
-const Homepage = () => {
+
+
+const HomePage = () => {
     return (
         <div>
-            <header className = "navbar">
-                <div className = "compiler">Compiler</div>
-                <Nav></Nav>
-            </header>
+            Welcome to Home Page! 
         </div>
     );
-}
+};
 
-export default Homepage;
+
+export default HomePage;
