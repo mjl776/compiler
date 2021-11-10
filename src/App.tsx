@@ -13,14 +13,12 @@ const App = () => {
       <div className="App">
         <Nav></Nav> 
         <Switch>
-          <Route  path='/' exact component={HomePage}></Route>
-          <Route  path='/signIn' component={signIn}></Route>
-          <Route  path='/signUp' component={signUp}></Route>
-          <Route  path='/posts' component={CreatePost}></Route>
-
-			</Switch>
+            <Route path='/' exact component={HomePage}></Route>
+            <Route path='/sign-in' component={signIn}></Route>
+            <Route path='/sign-up' component={signUp}></Route>
+            <Route path='/posts' component={CreatePost}></Route>
+        </Switch>
       </div>
-     
     </Router>
   );
 }
