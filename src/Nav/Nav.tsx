@@ -9,11 +9,11 @@ const Nav = () => {
             <div className = "compiler">Compiler</div>
                 <div className = "container">
                     <nav>
-                        <ul>  
-                            <Link to = "/"> <motion.li whileHover = {{ scale: 1.1 }}> Explorer Page </motion.li> </Link> 
-                            <Link to = "/sign-in"> <motion.li whileHover = {{ scale: 1.1 }}> Sign In </motion.li> </Link> 
-                            <Link to = "/sign-up"> <motion.li whileHover = {{ scale: 1.1 }}> Sign Up </motion.li> </Link> 
-                            <Link to = "/posts"> <motion.li whileHover = {{ scale: 1.1 }}> Posts </motion.li> </Link> 
+                        <ul>
+                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/"> Explorer Page </Link></motion.li>
+                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/sign-in"> Sign In </Link> </motion.li>
+                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/sign-up"> Sign Up </Link> </motion.li>
+                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/posts"> Posts </Link> </motion.li>
                         </ul>
                     </nav>
                 </div>
