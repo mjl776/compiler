@@ -3,9 +3,10 @@ nav {
 }
 
 header {
-    color:lightblue;
+    color:black;
     overflow:auto;
     padding: 20px;
+    font-weight: bold;
 }
 
 .container {
@@ -23,7 +24,7 @@ header {
 }  
  */
  
- nav ul {
+nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -32,13 +33,22 @@ header {
 nav li {
     display: inline-block;
     margin-left: 70px;
-    padding-top: 23px;
+    padding-top: 29px;
+    font-size: 20px;
     position: relative;
 }
 
 .compiler {
     float: left;
-    padding: 15px;
+    padding-top: 15px;
     font-size: 40px;
 }
 
+.compiler-slogan {
+    float: left;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}

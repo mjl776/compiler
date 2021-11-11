@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.compiler-slogan {
+  float: left;
+  margin: 0px;
+  margin-left: 30px;
+  padding: 0px;
+  font-weight: bold;
+}

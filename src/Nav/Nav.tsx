@@ -6,14 +6,14 @@ import "./Nav.css"
 const Nav = () => {
     return (
         <header>
-            <div className = "compiler">Compiler</div>
+            <div className = "compiler">compiler</div>
                 <div className = "container">
                     <nav>
                         <ul>
-                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/"> Explorer Page </Link></motion.li>
-                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/sign-in"> Sign In </Link> </motion.li>
-                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/sign-up"> Sign Up </Link> </motion.li>
-                            <motion.li whileHover = {{ scale: 1.1 }}> <Link to = "/posts"> Posts </Link> </motion.li>
+                            <Link className = "link" to = "/"><motion.li whileHover = {{ scale: 1.1 }}>  Explorer Page </motion.li> </Link>
+                            <Link className = "link" to = "/sign-in"> <motion.li whileHover = {{ scale: 1.1 }}> Sign In </motion.li> </Link> 
+                            <Link className = "link" to = "/sign-up"> <motion.li whileHover = {{ scale: 1.1 }}>  Sign Up  </motion.li> </Link>
+                            <Link className = "link" to = "/posts">  <motion.li whileHover = {{ scale: 1.1 }}> Posts </motion.li> </Link> 
                         </ul>
                     </nav>
                 </div>
