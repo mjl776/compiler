@@ -2,9 +2,10 @@
   text-align: center;
 }
 
-header {
-  background-color: darkblue;
-  color:lightblue;
-  overflow:auto;
-  padding: 20px;
+.compiler-slogan {
+  float: left;
+  margin: 0px;
+  margin-left: 30px;
+  padding: 0px;
+  font-weight: bold;
 }

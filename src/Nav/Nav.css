@@ -1,11 +1,12 @@
 nav {
     float: right;
 }
+
 header {
-    background-color: darkblue;
-    color:lightblue;
+    color:black;
     overflow:auto;
     padding: 20px;
+    font-weight: bold;
 }
 
 .container {
@@ -13,7 +14,7 @@ header {
     margin: 0 auto;
 }
 
-.text-box {
+/* .text-box {
     float: left;
     padding: 8px;
     border: 1px solid black;
@@ -21,7 +22,8 @@ header {
     margin-right: 16px;
     font-size: 17px;
 }  
-
+ */
+ 
 nav ul {
     margin: 0;
     padding: 0;
@@ -31,14 +33,22 @@ nav ul {
 nav li {
     display: inline-block;
     margin-left: 70px;
-    padding-top: 23px;
+    padding-top: 29px;
+    font-size: 20px;
     position: relative;
 }
 
 .compiler {
     float: left;
-    padding: 15px;
+    padding-top: 15px;
     font-size: 40px;
-    
 }
 
+.compiler-slogan {
+    float: left;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
