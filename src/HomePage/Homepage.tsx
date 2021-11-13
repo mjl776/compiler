@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Homepage.css";
+import ViewPosts from '../posts/viewPosts';
 
 const HomePage = () => {
     return (
@@ -7,6 +8,7 @@ const HomePage = () => {
             <div className = "blog-posts-title">
                 Blog Posts
             </div>
+            <ViewPosts></ViewPosts>
         </div>
     );
 };

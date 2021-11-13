@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import {collection, getDocs} from "firebase/firestore"
 import {db} from "../firebase/firebase"
-const viewPosts = () =>{
-    const [users, setUsers] = useState([]);
+const ViewPosts = () => {
+    // The variable for usestate needs to have a declared type
+    // so when we pull data for usestate, the variables can decide what type they need
+    // we use type "any" here to clear any confusing errors
+    // and we also use it in our html 
+    const [posts, setPosts] = useState<any>([]);
 
     useEffect(() => {
         // Asynchronous Function from the API Promise. Promise = Binary Result of the API Call
@@ -16,7 +19,7 @@ const viewPosts = () =>{
 
             // Error above, but we still write the skeleton code
 
-           // setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+           setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 
         }
         getUsers();
@@ -25,15 +28,15 @@ const viewPosts = () =>{
 
     return <div className ="App"> 
     <input placeholder="Name ..." />
-    {users.map((user) => {
+    {posts.map((post: any) => {
         return (
         <div>
             {" "}
-            <h1>{user.name}</h1>
+            <h1>{post.author}</h1>
         </div>
         );
     })}
     </div>
 }
 
-export default viewPosts;
+export default ViewPosts;

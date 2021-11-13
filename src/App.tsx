@@ -6,7 +6,6 @@ import Nav from './Nav/Nav';
 import signIn from './authentication/signIn';
 import signUp from './authentication/signUp';
 import HomePage from "./HomePage/Homepage";
-
 const App = () => {
   return (
     <Router>
