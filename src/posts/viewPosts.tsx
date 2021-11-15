@@ -31,9 +31,24 @@ const ViewPosts = () => {
     {posts.map((post: any) => {
         return (
         <div>
-            {" "}
-            <h1>{post.author}</h1>
+
+            <div>
+                {" Title:  "}
+                <h1>{post.postTitle}</h1>
+            </div>
+
+            <div>
+                {" Author: "}
+                <h1>{post.author}</h1>
+            </div>
+
+            <div>
+                {" Blog Post Text: "}
+                <h1>{post.postText}</h1>
+            </div>
+
         </div>
+        
         );
     })}
     </div>
