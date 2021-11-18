@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import {collection, getDocs} from "firebase/firestore"
-import {db} from "../firebase/firebase"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebase/firebase"
+import "./viewPosts.css"
+import { Link } from "react-router-dom";
+
 const ViewPosts = () => {
     // The variable for usestate needs to have a declared type
     // so when we pull data for usestate, the variables can decide what type they need
@@ -12,46 +15,45 @@ const ViewPosts = () => {
         // Asynchronous Function from the API Promise. Promise = Binary Result of the API Call
 
         const postsCollectionRef = collection(db, "posts");
-        const getUsers = async () => {
+        const getPosts = async () => {
             // Logic from getting the users from FireBase
             const data = await getDocs(postsCollectionRef);
-            console.log(data);
-
-            // Error above, but we still write the skeleton code
 
            setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-
+           
+           
         }
-        getUsers();
+        getPosts();
     }, [])
 
-
-    return <div className ="App"> 
-    <input placeholder="Name ..." />
-    {posts.map((post: any) => {
-        return (
-        <div>
-
-            <div>
-                {" Title:  "}
-                <h1>{post.postTitle}</h1>
+    return (
+        <div className = "view-posts-container"> 
+            <div className = "blog-posts-title">
+                Blog Posts
             </div>
-
-            <div>
-                {" Author: "}
-                <h1>{post.author}</h1>
+            <div className = "outside-border-searchbar">
+                <input className = "author-searchBar" placeholder="Name ..." />
             </div>
-
-            <div>
-                {" Blog Post Text: "}
-                <h1>{post.postText}</h1>
-            </div>
-
+                {posts.map((post: any) => {
+                    return (
+                        <Link className = "posts" to = { "/posts/" + post.id }>
+                            <div className = "outside-border-posts"> 
+                                <div className = "inside-border-posts">
+                                    <div className = "post-content" >
+                                        <div>
+                                            <h1> { post.postTitle }</h1>
+                                        </div>
+                                        <div>
+                                            <h1>{post.author}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    );
+            })}
         </div>
-        
-        );
-    })}
-    </div>
+    );
 }
 
 export default ViewPosts;

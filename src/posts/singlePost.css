@@ -1,0 +1,38 @@
+.post-photo {
+    padding: 10px;
+}
+
+img { 
+    border-radius: 10%;
+    height: 300px;
+}
+
+.outside-border-post {
+    border-style: solid;
+}
+
+.inside-border-post {
+    background-color: white;
+}
+
+.single-post-container {
+    padding: 30px;
+    margin: 0 auto;
+    width: 550px;
+}
+
+.title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.author {
+    font-size: 25px;
+    padding: 10px;
+}
+.post-text {
+    padding: 10px;
+}
+
+
