@@ -1,0 +1,28 @@
+
+.outside-border-searchbar {
+    padding: 10px;
+}
+
+.outside-border-posts {
+    padding: 10px;
+}
+
+.inside-border-posts {
+    padding: 10px;
+    border-style: solid;
+}
+
+.posts {
+    text-decoration: none;
+    color: black;
+}
+
+.blog-posts-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.view-posts-container {
+    margin: 0 auto;
+}
