@@ -5,7 +5,7 @@ import {
 } from "firebase/firestore";
 import db from '../firebase/firebase'
 import "./createPost.css"
-
+import { motion } from 'framer-motion'
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
@@ -18,7 +18,9 @@ const CreatePost = () => {
 
     // return values for our database  
     const createPost = async () => {
-        await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor })
+        if (newAuthor != "" && newPostText!= "" && newPostTitle != "") {
+            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor })
+        }
     }
 
 
@@ -26,41 +28,45 @@ const CreatePost = () => {
         <div className="post-form">
 
             <div className = "create-post-title">
-                Create a New Post
-            </div>            
+                Create a new post
+            </div>     
+                  
+            <div className = "create-post-slogan">
+                Welcome to the create a new post page!
+            </div> 
 
-            <p>
+            <div className = "text-field-posts">
                 <input 
                     type = "text"
-                    placeholder = "Post title..."
+                    placeholder = "   Post Title"
                     onChange = {(event) =>{
                         setNewPostTitle(event.target.value);
                     }}
                 />
-            </p>
+            </div>
 
-            <p>
-            <textarea
-                className = "post-text"
-                placeholder="Post text..."
-                onChange = {(event) =>{
-                    setNewPostText(event.target.value);
-                }}
-            >
-            </textarea>
-            </p>
-            <p>
+            <div className = "text-field-posts">
+                <textarea
+                    placeholder="   Post Text"
+                    onChange = {(event) =>{
+                        setNewPostText(event.target.value);
+                    }}
+                >
+                </textarea>
+            </div>
+
+            <div className = "text-field-posts">
             <input 
                 type = "text"
-                placeholder = "Author..."
+                placeholder = "   Author"
                 onChange = {(event) =>{
                     setNewAuthor(event.target.value);
                 }}
             /> 
-            </p>
-
-            <button onClick={createPost} className = "create-post-button"> Create Post</button>         
-
+            </div>
+            <div className= "create-post-button-outside-border">
+                <motion.button whileHover = {{ scale: 1.1 }} onClick={createPost} className = "create-post-button"> Create Post</motion.button>         
+            </div>
         </div>
     );
 }
