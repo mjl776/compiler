@@ -37,6 +37,7 @@ const CreatePost = () => {
 
             <div className = "text-field-posts">
                 <input 
+                    className = "create-post-title-box"
                     type = "text"
                     placeholder = "   Post Title"
                     onChange = {(event) =>{
@@ -56,14 +57,15 @@ const CreatePost = () => {
             </div>
 
             <div className = "text-field-posts">
-            <input 
-                type = "text"
-                placeholder = "   Author"
-                onChange = {(event) =>{
-                    setNewAuthor(event.target.value);
-                }}
-            /> 
-            </div>
+                <input 
+                    type = "text"
+                    placeholder = "   Author"
+                    className = "create-post-title-box"
+                    onChange = {(event) =>{
+                        setNewAuthor(event.target.value);
+                    }}
+                /> 
+                </div>
             <div className= "create-post-button-outside-border">
                 <motion.button whileHover = {{ scale: 1.1 }} onClick={createPost} className = "create-post-button"> Create Post</motion.button>         
             </div>
