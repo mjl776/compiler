@@ -7,6 +7,9 @@ const SignIn = () => {
           <div className = "sign-in-page-title">
               Login Page
           </div>
+          <div className = "sign-in-slogan">
+                Welcome to the sign in page!
+          </div> 
           <div className = "email-box-outside-border">
             <input type = "text" className = "email-box" placeholder = "email..."/>
           </div>
