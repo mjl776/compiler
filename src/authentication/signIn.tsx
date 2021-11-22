@@ -5,7 +5,7 @@ const SignIn = () => {
     return (
       <div>
           <div className = "sign-in-page-title">
-              Login Page
+              Sign In
           </div>
           <div className = "sign-in-slogan">
                 Welcome to the sign in page!
@@ -18,7 +18,7 @@ const SignIn = () => {
           </div>
           <div className = "login-button-outside-border">
               <button className = "login-button">
-                  Login
+                  Sign In
               </button>
           </div>
       </div>
