@@ -5,35 +5,38 @@ const SignUp = () => {
     return (
       <div>
           <div className = "sign-up-page-title">
-              SignUp Page
+              Sign Up
           </div>
+          <div className = "sign-up-slogan">
+                Welcome to the sign up page!
+          </div> 
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "email..."/>
+            <input type = "text" className = "username-box" placeholder = "Email"/>
           </div>
           <div className = "password-box-outside-border">
-            <input type = "text" className = "password-box" placeholder = "password..."/>
+            <input type = "text" className = "password-box" placeholder = "Password"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "username..."/>
+            <input type = "text" className = "username-box" placeholder = "Username"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "First Name.."/>
+            <input type = "text" className = "username-box" placeholder = "First Name"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Last Name.."/>
+            <input type = "text" className = "username-box" placeholder = "Last Name"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "github url.."/>
+            <input type = "text" className = "username-box" placeholder = "Github"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "linkedin url.."/>
+            <input type = "text" className = "username-box" placeholder = "linkedin"/>
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Instagram url.."/>
+            <input type = "text" className = "username-box" placeholder = "Instagram"/>
           </div>
           <div className = "signup-button-outside-border">
               <button className = "signup-button">
-                  Signup
+                  Sign up
               </button>
           </div>
       </div>
