@@ -7,8 +7,8 @@ const SignIn = () => {
           <div className = "sign-in-page-title">
               Login Page
           </div>
-          <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "username..."/>
+          <div className = "email-box-outside-border">
+            <input type = "text" className = "email-box" placeholder = "email..."/>
           </div>
           <div className = "password-box-outside-border">
             <input type = "text" className = "password-box" placeholder = "password..."/>
