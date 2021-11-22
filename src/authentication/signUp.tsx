@@ -36,7 +36,7 @@ const SignUp = () => {
           </div>
           <div className = "signup-button-outside-border">
               <button className = "signup-button">
-                  Sign up
+                  Sign Up
               </button>
           </div>
       </div>
