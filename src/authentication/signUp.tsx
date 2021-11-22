@@ -8,12 +8,6 @@ const SignUp = () => {
               SignUp Page
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "First Name.."/>
-          </div>
-          <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Last Name.."/>
-          </div>
-          <div className = "username-box-outside-border">
             <input type = "text" className = "username-box" placeholder = "email..."/>
           </div>
           <div className = "password-box-outside-border">
@@ -21,6 +15,12 @@ const SignUp = () => {
           </div>
           <div className = "username-box-outside-border">
             <input type = "text" className = "username-box" placeholder = "username..."/>
+          </div>
+          <div className = "username-box-outside-border">
+            <input type = "text" className = "username-box" placeholder = "First Name.."/>
+          </div>
+          <div className = "username-box-outside-border">
+            <input type = "text" className = "username-box" placeholder = "Last Name.."/>
           </div>
           <div className = "username-box-outside-border">
             <input type = "text" className = "username-box" placeholder = "github url.."/>
