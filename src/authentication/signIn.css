@@ -9,7 +9,7 @@
     padding: 2px;
 }
 
-.username-box {
+.email-box {
     width: 150x;
     height: 34px;
     font-size: 17px;
@@ -18,7 +18,7 @@
     border-radius: 10px;
 }
 
-.username-box-outside-border {
+.email-box-outside-border {
     font-family: Montserrat;
     padding: 7px;
 }
