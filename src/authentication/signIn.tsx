@@ -11,10 +11,10 @@ const SignIn = () => {
                 Welcome to the sign in page!
           </div> 
           <div className = "email-box-outside-border">
-            <input type = "text" className = "email-box" placeholder = "email..."/>
+            <input type = "text" className = "email-box" placeholder = "Email"/>
           </div>
           <div className = "password-box-outside-border">
-            <input type = "text" className = "password-box" placeholder = "password..."/>
+            <input type = "text" className = "password-box" placeholder = "Password"/>
           </div>
           <div className = "login-button-outside-border">
               <button className = "login-button">
