@@ -7,7 +7,6 @@ nav {
     color:black;
     overflow:auto;
     padding: 30px;
-    font-weight: bold;
 }
 
 nav ul {
@@ -28,6 +27,7 @@ nav li {
     float: left;
     padding-top: 15px;
     font-size: 40px;
+    font-weight: bold;
 }
 
 .compiler-slogan {
