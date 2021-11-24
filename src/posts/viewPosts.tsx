@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore"
 import { db } from "../firebase/firebase"
 import "./viewPosts.css"
 import { Link } from "react-router-dom";
-
+import photo from "./placeholder.png"
 const ViewPosts = () => {
     // The variable for usestate needs to have a declared type
     // so when we pull data for usestate, the variables can decide what type they need
@@ -40,11 +40,14 @@ const ViewPosts = () => {
                             <div className = "outside-border-posts"> 
                                 <div className = "inside-border-posts">
                                     <div className = "post-content" >
-                                        <div>
-                                            <h1> { post.postTitle }</h1>
+                                    <div>
+                                        <img src={photo} className = "view-posts-photo" alt= "placeholder"/>
+                                    </div>
+                                        <div className = "post-title-view-posts">
+                                            { post.postTitle }
                                         </div>
-                                        <div>
-                                            <h1>{post.author}</h1>
+                                        <div className = "post-author-view-posts">
+                                            {post.author}
                                         </div>
                                     </div>
                                 </div>
