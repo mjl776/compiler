@@ -2,9 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
 } from "firebase/auth";
 import './signUp.css';
 import { auth } from "../firebase/firebase";
@@ -12,10 +10,10 @@ import { auth } from "../firebase/firebase";
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser]: any = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
-    if(currentUser)
+    if(currentUser)      
       setUser(currentUser);
   });
 
@@ -58,8 +56,6 @@ const SignUp = () => {
             onChange={(event) => {
               setRegisterPassword(event.target.value);
             }}
-
-
             />
           </div>
           <div className = "username-box-outside-border">
@@ -72,10 +68,13 @@ const SignUp = () => {
             <input type = "text" className = "username-box" placeholder = "Instagram url.."/>
           </div>
           <div className = "signup-button-outside-border">
+            
               <button className = "signup-button" onClick={register}>
                   Signup
               </button>
           </div>
+          <h4> User Logged In: </h4>
+              {user?.email}
       </div>
     );
 }
