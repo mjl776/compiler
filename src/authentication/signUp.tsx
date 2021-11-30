@@ -39,15 +39,6 @@ const SignUp = () => {
                 Welcome to the sign up page!
           </div> 
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Email"/>
-          </div>
-          <div className = "password-box-outside-border">
-            <input type = "text" className = "password-box" placeholder = "Password"/>
-          </div>
-          <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Username"/>
-          </div>
-          <div className = "username-box-outside-border">
             <input type = "text" className = "username-box" placeholder = "username..." 
             
             onChange={(event) => {
