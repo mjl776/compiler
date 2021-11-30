@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
-import S3 from "react-aws-s3";
+import S3 from 'react-aws-s3';
+// npm install -D @types/react-aws-s3-name
+// const S3 = require('react-aws-s3');
 
-function Upload() {
-  const fileInput = useRef();
+const Upload = () => {
+  const fileInput = useRef(null);
   const handleClick = (event) => {
     event.preventDefault();
+
     let file = fileInput.current.files[0];
     let newFileName = fileInput.current.files[0].name.replace(/\..+$/, "");
     const config = {
