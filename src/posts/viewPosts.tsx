@@ -30,9 +30,9 @@ const ViewPosts = () => {
     // console.log(posts[0], 30);
 
     let leftPosts = [];
-    let rightPosts = [];
+    let rightPosts: any[]; 
     leftPosts = posts.slice(0, posts.length/2);
-    rightPosts = posts.slice(posts.length/2, posts.length);
+    rightPosts = posts.slice(posts.length/2 + 1, posts.length);
     // console.log(leftPosts, 36);
     // console.log(rightPosts, 37);
     return (
@@ -43,7 +43,8 @@ const ViewPosts = () => {
             <div className = "outside-border-searchbar">
                 <input className = "author-searchBar" placeholder="Name ..." />
             </div>
-            {leftPosts.map((post: any) => {
+            {posts.map((post: any) => {
+  
                     return(
                         <Link className = "posts" to = {"/posts/" + post.id}>
                             <div className = "flex-container"> 
@@ -58,26 +59,21 @@ const ViewPosts = () => {
                                                 {post.author}
                                         </div>
                                     </div>
-                                    <div>  
-                                    {rightPosts.map((post: any) => {
-                                        return (
-                                        <div className = "flex-child">
-                                            <div>
-                                                <img src={photo} className = "view-posts-photo" alt= "placeholder"/>
-                                            </div>
-                                            <div className = "post-title-view-posts">
-                                                    {post.postTitle}
-                                            </div>
-                                            <div className = "post-author-view-posts">
-                                                    {post.author}
-                                            </div>
+                                    <div className = "flex-child">
+                                        <div>
+                                            <img src={photo} className = "view-posts-photo" alt= "placeholder"/>
                                         </div>
-                                        })}
-                                       
+                                        <div className = "post-title-view-posts">
+                                                {post.postTitle}
+                                        </div>
+                                        <div className = "post-author-view-posts">
+                                                {post.author}
+                                        </div>
                                     </div>
-                                
                             </div>
+                            
                         </Link>
+                        
                     );
             })}
         </div>
