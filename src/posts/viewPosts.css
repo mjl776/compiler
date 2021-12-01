@@ -39,9 +39,15 @@
     margin: 0 auto;
 }
 
-.post-author-view-posts {
-
+.author-searchBar {
+    width: 150x;
+    height: 34px;
+    font-size: 17px;
+    text-align: start;
+    border: 2px solid black;
+    border-radius: 10px;
 }
+
 .post-title-view-posts {
     font-weight: bold;
     font-size: 20px;

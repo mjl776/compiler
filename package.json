@@ -9,13 +9,17 @@
     "@types/jest": "^26.0.24",
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
+    "@types/react-router": "^5.1.17",
+    "aws-s3-reactjs": "^1.0.13",
     "firebase": "^9.4.1",
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
+    "react-aws-s3": "^1.5.0",
+    "react-aws-s3-typescript": "^1.1.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
-    "typescript": "^4.4.4",
+    "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -26,8 +30,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.20.36",
-    "@types/react-router-dom": "^5.3.2"
+    "@types/react-router-dom": "^5.3.2",
+    "eslint-plugin-jest": "^25.3.0"
   }
 }

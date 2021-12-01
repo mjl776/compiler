@@ -6,6 +6,7 @@ import {
 import db from '../firebase/firebase'
 import "./createPost.css"
 import { motion } from 'framer-motion'
+import Upload from "../aws-Photos/aws"
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
@@ -26,11 +27,10 @@ const CreatePost = () => {
 
     return (
         <div className="post-form">
-
             <div className = "create-post-title">
                 Create a new post
-            </div>     
-                  
+            </div>   
+                <Upload></Upload>
             <div className = "create-post-slogan">
                 Welcome to the create a new post page!
             </div> 
