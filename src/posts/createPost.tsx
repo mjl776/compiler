@@ -42,21 +42,14 @@ const CreatePost = () => {
         if (!file) return;
 
         if (newAuthor != "" && newPostText!= "" && newPostTitle != "") {
-            const storageRef = ref(storage, "post-photos/" + user.uid + "/" + fileName);
+            // Listen for state changes, errors, and completion of the upload.
+            const storageRef = ref(storage, "post-photos/" + user.uid + "/" + newPostTitle + "/" + fileName);
             const uploadFile = uploadBytesResumable(storageRef, file);
-
-            //Firebase documentation upload function example: 
-
-            // Register three observers:
-            // 1. 'state_changed' observer, called any time the state changes
-            // 2. Error observer, called on failure
-            // 3. Completion observer, called on successful completion
-
-            uploadFile.on('state_changed', 
-                (snapshot) => {
-                // Observe state change events such as progress, pause, and resume
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            var url = "";
+                    uploadFile.on('state_changed',
+                    (snapshot) => {
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
@@ -66,22 +59,22 @@ const CreatePost = () => {
                         console.log('Upload is running');
                         break;
                     }
-                }, 
-                (error) => {
-                    // Handle unsuccessful uploads
-                    console.log(error);
-                }, 
-                // Handle successful uploads on complete
-                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                async() => {
-                    const url = await getDownloadURL(uploadFile.snapshot.ref);
-                    console.log('File available at', url);
-                    setPhotoUrl(url);
-                }
-                
-            );
-
-            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
+                    }, 
+                    (error) => {
+                        console.log(error);
+                    }, 
+                    async () => {
+                        // Upload completed successfully, now we can get the download URL
+                        await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL) => {
+                            console.log('File available at', downloadURL);
+                            url = downloadURL;
+                        }).then(() => {
+                            setPhotoUrl(url);
+                        })
+            });
+            if (photoUrl!= "") {
+                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
+            }
         }
     }
 

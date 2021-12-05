@@ -57,3 +57,49 @@
     width: 250px;
     height: 140px;
 }
+
+.outside-border-searchbar {
+    padding: 10px;
+}
+
+.outside-border-posts {
+    padding: 10px;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.inside-border-posts {
+    padding: 10px;
+    border-style: solid;
+    background-color: white;
+    border-radius: 10px;
+    height: 230px;
+}
+
+.posts {
+    text-decoration: none;
+    color: black;
+}
+
+.blog-posts-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.view-posts-container {
+    margin: 0 auto;
+}
+
+.post-author-view-posts {
+
+}
+.post-title-view-posts {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.view-posts-photo {
+    width: 250px;
+    height: 140px;
+}

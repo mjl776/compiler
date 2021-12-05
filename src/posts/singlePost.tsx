@@ -28,7 +28,7 @@ const SinglePost = () => {
                         {post.postTitle}
                     </div>
                     <div className = "post-photo">
-                        <img src={photo} alt= "placeholder"/>
+                        <img src={post.photoURL} alt= "post photo"/>
                     </div>
                     <div className = "author">
                         { "By " + post.author}
