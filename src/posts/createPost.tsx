@@ -3,12 +3,15 @@ import {
     collection,
     addDoc,
 } from "firebase/firestore";
-import db from '../firebase/firebase'
+import {db, auth } from '../firebase/firebase'
 import "./createPost.css"
 import { motion } from 'framer-motion'
 import { storage } from "../firebase/firebase";
 import { ref, getDownloadURL } from '@firebase/storage';
 import { uploadBytesResumable } from 'firebase/storage';
+import {
+    onAuthStateChanged,
+  } from "firebase/auth";
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
@@ -25,7 +28,12 @@ const CreatePost = () => {
         setFileName(file.name);
     };
     
+    const [user, setUser]: any = useState({});
 
+  onAuthStateChanged(auth, (currentUser) => {
+    if(currentUser)
+    setUser(currentUser);
+  });
     // Intialize user collection reference 
     const postsCollectionRef = collection(db, "posts");
 
@@ -34,8 +42,7 @@ const CreatePost = () => {
         if (!file) return;
 
         if (newAuthor != "" && newPostText!= "" && newPostTitle != "") {
-            console.log(fileName);
-            const storageRef = ref(storage, "post-photos/" + fileName);
+            const storageRef = ref(storage, "post-photos/" + user.uid + "/" + fileName);
             const uploadFile = uploadBytesResumable(storageRef, file);
 
             //Firebase documentation upload function example: 
@@ -73,11 +80,10 @@ const CreatePost = () => {
                 }
                 
             );
-            
+
             await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
         }
     }
-
 
     return (
         <div className="post-form">
