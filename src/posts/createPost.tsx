@@ -73,8 +73,8 @@ const CreatePost = () => {
                 }
                 
             );
-
-            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl })
+            
+            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
         }
     }
 
