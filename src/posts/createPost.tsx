@@ -15,6 +15,7 @@ const CreatePost = () => {
     const [newPostTitle, setNewPostTitle] = useState("");
     const [newPostText, setNewPostText] = useState("");
     const [newAuthor, setNewAuthor] = useState("");
+    const [newCategory, setNewCategory] = useState("");
     const [photoUrl, setPhotoUrl] = useState("");
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
@@ -73,7 +74,7 @@ const CreatePost = () => {
                 
             );
 
-            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, photoURL: photoUrl })
+            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl })
         }
     }
 
@@ -110,6 +111,17 @@ const CreatePost = () => {
                     }}
                 >
                 </textarea>
+            </div>
+
+            <div className = "text-field-posts">
+                <input 
+                    type = "text"
+                    placeholder = "   Post Category"
+                    className = "create-post-title-box"
+                    onChange = {(event) =>{
+                        setNewCategory(event.target.value);
+                    }}
+                /> 
             </div>
 
             <div className = "text-field-posts">
