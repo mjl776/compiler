@@ -67,20 +67,20 @@ const ViewPosts = () => {
     {leftPosts.map((post: any) => {
 
             return(
-                <Link className = "posts" key="{post}" to = {"/posts/" + post.id}>
+                <Link className = "posts" to = {"/posts/" + post.id}>
                     <div className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
-                            <div className = "post-content"  key = {post.id} >
+                            <div className = "post-content" >
                             <div  key = {post.photoUrl} >
                                 <img src={post.photoURL} className = "view-posts-photo" alt= "placeholder"/>
                             </div>
-                                <div className = "post-title-view-posts" key = {post.postTitle} >
+                                <div className = "post-title-view-posts" >
                                     { post.postTitle }
                                 </div>
-                                <div className = "post-author-view-posts"  key = {post.author} >
+                                <div className = "post-author-view-posts" >
                                     {post.author}
                                 </div>
-                                <div className = "post-author-view-posts" key = {post.category}>
+                                <div className = "post-author-view-posts" >
                                     {post.category}
                                 </div>
                             </div>

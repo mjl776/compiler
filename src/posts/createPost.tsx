@@ -2,6 +2,9 @@ import  React, { useState, useEffect } from 'react';
 import {
     collection,
     addDoc,
+    where,
+    query,
+    getDocs
 } from "firebase/firestore";
 import {db, auth } from '../firebase/firebase'
 import "./createPost.css"
@@ -22,21 +25,33 @@ const CreatePost = () => {
     const [photoUrl, setPhotoUrl] = useState(null);
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
+    const [userName, setUserName] = useState("");
 
-    const onFileChange = async (event: any) => {
-        const file = event.target.files[0];
-        setFile(file);
-        setFileName(file.name);
-    };
-    
+    // Auth
     const [user, setUser]: any = useState({});
+    const [uid,setUID]: any = useState(null);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    if(currentUser)
-    setUser(currentUser);
-  });
-    // Intialize user collection reference 
-    const postsCollectionRef = collection(db, "posts");
+// signs user in 
+onAuthStateChanged(auth, (currentUser) => {
+    if(currentUser) {
+        setUser(currentUser);
+        setUID(currentUser.uid);
+    }
+});
+
+// Intialize user collection reference 
+const postsCollectionRef = collection(db, "posts");
+
+
+// pull in username of current user
+
+const onFileChange = async (event: any) => {
+    const file = event.target.files[0];
+    setFile(file);
+    setFileName(file.name);
+};
+
+
 
     const createPost = async () => {
         if (!file) return;
@@ -62,7 +77,6 @@ const CreatePost = () => {
                         console.log(error);
                     }, 
                     async () => {
-
                         await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL)=> {
                             DB_post(downloadURL);
                         });
@@ -72,11 +86,13 @@ const CreatePost = () => {
                 
             }   
 
+
+            // post photos to db
             const DB_post = async(url) =>{
                 if (url==null) {
                     return;
                 }
-                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: url, date: Date.now() })
+                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: url, date: Date.now(), author_uid: uid })
             }
 
     return (
@@ -133,7 +149,7 @@ const CreatePost = () => {
                         setNewAuthor(event.target.value);
                     }}
                 /> 
-                </div>
+            </div>
             <div className= "create-post-button-outside-border">
                 <motion.button whileHover = {{ scale: 1.1 }} onClick={createPost} className = "create-post-button"> Create Post</motion.button>         
             </div>
