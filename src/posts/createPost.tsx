@@ -4,7 +4,8 @@ import {
     addDoc,
     where,
     query,
-    getDocs
+    getDocs,
+    onSnapshot
 } from "firebase/firestore";
 import {db, auth } from '../firebase/firebase'
 import "./createPost.css"
@@ -36,8 +37,23 @@ onAuthStateChanged(auth, (currentUser) => {
     if(currentUser) {
         setUser(currentUser);
         setUID(currentUser.uid);
+        userNameFind(currentUser.uid);
     }
 });
+
+// collection ref
+function userNameFind (uid) {
+    const usersRef = collection(db, "users");
+    // queries
+    const q = query(usersRef, where("user_id", "==", uid));
+
+    onSnapshot(q, (snapshot) => {
+        let user = {};
+        snapshot.docs.forEach(doc => {
+           setUserName(doc.data().username);
+        })
+    })
+}
 
 // Intialize user collection reference 
 const postsCollectionRef = collection(db, "posts");
@@ -92,7 +108,7 @@ const onFileChange = async (event: any) => {
                 if (url==null) {
                     return;
                 }
-                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: url, date: Date.now(), author_uid: uid })
+                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: userName, category: newCategory, photoURL: url, date: Date.now(), author_uid: uid })
             }
 
     return (
@@ -105,9 +121,12 @@ const onFileChange = async (event: any) => {
             <div className = "create-post-slogan">
                 Welcome to the create a new post page!
             </div> 
-
-            <input type="file" className="input"  onChange = {onFileChange}/>
-
+            <div className = "create-post-slogan">
+                Insert any photo Below: 
+            </div> 
+            <div>
+                <input type="file" className="input"  onChange = {onFileChange}/>
+            </div>
             <div className = "text-field-posts">
                 <input 
                     className = "create-post-title-box"
@@ -136,17 +155,6 @@ const onFileChange = async (event: any) => {
                     className = "create-post-title-box"
                     onChange = {(event) =>{
                         setNewCategory(event.target.value);
-                    }}
-                /> 
-            </div>
-
-            <div className = "text-field-posts">
-                <input 
-                    type = "text"
-                    placeholder = "   Author"
-                    className = "create-post-title-box"
-                    onChange = {(event) =>{
-                        setNewAuthor(event.target.value);
                     }}
                 /> 
             </div>

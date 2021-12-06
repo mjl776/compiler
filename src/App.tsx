@@ -8,6 +8,7 @@ import signUp from './authentication/signUp';
 import HomePage from "./HomePage/Homepage";
 import SinglePost from './posts/singlePost';
 const App = () => {
+
   return (
     <Router>
       <div className="App">
