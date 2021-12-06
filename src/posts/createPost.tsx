@@ -2,6 +2,9 @@ import  React, { useState, useEffect } from 'react';
 import {
     collection,
     addDoc,
+    where,
+    query,
+    getDocs
 } from "firebase/firestore";
 import {db, auth } from '../firebase/firebase'
 import "./createPost.css"
@@ -19,44 +22,47 @@ const CreatePost = () => {
     const [newPostText, setNewPostText] = useState("");
     const [newAuthor, setNewAuthor] = useState("");
     const [newCategory, setNewCategory] = useState("");
-    const [photoUrl, setPhotoUrl] = useState("");
+    const [photoUrl, setPhotoUrl] = useState(null);
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
-    const onFileChange = async (event: any) => {
-        const file = event.target.files[0];
-        setFile(file);
-        setFileName(file.name);
-    };
-    
+    const [userName, setUserName] = useState("");
+
+    // Auth
     const [user, setUser]: any = useState({});
+    const [uid,setUID]: any = useState(null);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    if(currentUser)
-    setUser(currentUser);
-  });
-    // Intialize user collection reference 
-    const postsCollectionRef = collection(db, "posts");
+// signs user in 
+onAuthStateChanged(auth, (currentUser) => {
+    if(currentUser) {
+        setUser(currentUser);
+        setUID(currentUser.uid);
+    }
+});
 
-    // return values for our database  
+// Intialize user collection reference 
+const postsCollectionRef = collection(db, "posts");
+
+
+// pull in username of current user
+
+const onFileChange = async (event: any) => {
+    const file = event.target.files[0];
+    setFile(file);
+    setFileName(file.name);
+};
+
+
+
     const createPost = async () => {
         if (!file) return;
-
-        if (newAuthor != "" && newPostText!= "" && newPostTitle != "") {
-            const storageRef = ref(storage, "post-photos/" + user.uid + "/" + fileName);
+            // Listen for state changes, errors, and completion of the upload.
+            const storageRef = ref(storage, "post-photos/" + user.uid + "/" + newPostTitle + "/" + fileName);
             const uploadFile = uploadBytesResumable(storageRef, file);
-
-            //Firebase documentation upload function example: 
-
-            // Register three observers:
-            // 1. 'state_changed' observer, called any time the state changes
-            // 2. Error observer, called on failure
-            // 3. Completion observer, called on successful completion
-
-            uploadFile.on('state_changed', 
-                (snapshot) => {
-                // Observe state change events such as progress, pause, and resume
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            var url = "";
+            uploadFile.on('state_changed',
+                    (snapshot) => {
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
@@ -66,24 +72,28 @@ const CreatePost = () => {
                         console.log('Upload is running');
                         break;
                     }
-                }, 
-                (error) => {
-                    // Handle unsuccessful uploads
-                    console.log(error);
-                }, 
-                // Handle successful uploads on complete
-                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                async() => {
-                    const url = await getDownloadURL(uploadFile.snapshot.ref);
-                    console.log('File available at', url);
-                    setPhotoUrl(url);
-                }
-                
-            );
+                    }, 
+                    (error) => {
+                        console.log(error);
+                    }, 
+                    async () => {
+                        await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL)=> {
+                            DB_post(downloadURL);
+                        });
+                    },
 
-            await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
-        }
-    }
+                );
+                
+            }   
+
+
+            // post photos to db
+            const DB_post = async(url) =>{
+                if (url==null) {
+                    return;
+                }
+                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: url, date: Date.now(), author_uid: uid })
+            }
 
     return (
         <div className="post-form">
@@ -139,7 +149,7 @@ const CreatePost = () => {
                         setNewAuthor(event.target.value);
                     }}
                 /> 
-                </div>
+            </div>
             <div className= "create-post-button-outside-border">
                 <motion.button whileHover = {{ scale: 1.1 }} onClick={createPost} className = "create-post-button"> Create Post</motion.button>         
             </div>

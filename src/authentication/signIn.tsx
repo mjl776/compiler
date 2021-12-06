@@ -28,6 +28,7 @@ const SignIn = () => {
     } catch (error: any) {
       console.log(error.message);
     }
+    
   };
     return (
       <div>

@@ -20,6 +20,9 @@ const SinglePost = () => {
         getPost();
     }, [])
 
+    var newDate = new Date(post.date).toLocaleDateString("en-UE");
+
+
     return (
         <div className = "single-post-container">
             <div className = "outside-border-post"> 
@@ -28,10 +31,13 @@ const SinglePost = () => {
                         {post.postTitle}
                     </div>
                     <div className = "post-photo">
-                        <img src={photo} alt= "placeholder"/>
+                        <img src={post.photoURL} alt= "post photo"/>
                     </div>
                     <div className = "author">
                         { "By " + post.author}
+                    </div>
+                    <div>
+                        { "Date: " + newDate }
                     </div>
                     <div className = "post-text">
                         {post.postText}
