@@ -11,7 +11,6 @@ import "react-simple-flex-grid/lib/main.css";
 // Motion LI
 import { motion } from 'framer-motion'
 
-
 const ViewPosts = () => {
     // The variable for usestate needs to have a declared type
     // so when we pull data for usestate, the variables can decide what type they need
@@ -113,8 +112,8 @@ const ViewPosts = () => {
                                 <div className = "post-author-view-posts">
                                     {post.author}
                                 </div>
-                                <div className = "post-author-view-posts">
-                                    {post.category}
+                                <div className = "post-category-view-posts">
+                                    {"Category: " + post.category}
                                 </div>
                             </div>
                         </div>
