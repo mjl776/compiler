@@ -19,9 +19,10 @@ const CreatePost = () => {
     const [newPostText, setNewPostText] = useState("");
     const [newAuthor, setNewAuthor] = useState("");
     const [newCategory, setNewCategory] = useState("");
-    const [photoUrl, setPhotoUrl] = useState("");
+    const [photoUrl, setPhotoUrl] = useState(null);
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
+
     const onFileChange = async (event: any) => {
         const file = event.target.files[0];
         setFile(file);
@@ -37,16 +38,13 @@ const CreatePost = () => {
     // Intialize user collection reference 
     const postsCollectionRef = collection(db, "posts");
 
-    // return values for our database  
     const createPost = async () => {
         if (!file) return;
-
-        if (newAuthor != "" && newPostText!= "" && newPostTitle != "") {
             // Listen for state changes, errors, and completion of the upload.
             const storageRef = ref(storage, "post-photos/" + user.uid + "/" + newPostTitle + "/" + fileName);
             const uploadFile = uploadBytesResumable(storageRef, file);
             var url = "";
-                    uploadFile.on('state_changed',
+            uploadFile.on('state_changed',
                     (snapshot) => {
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -64,19 +62,22 @@ const CreatePost = () => {
                         console.log(error);
                     }, 
                     async () => {
-                        // Upload completed successfully, now we can get the download URL
-                        await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL) => {
-                            console.log('File available at', downloadURL);
-                            url = downloadURL;
-                        }).then(() => {
-                            setPhotoUrl(url);
-                        })
-            });
-            if (photoUrl!= "") {
-                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: photoUrl, date: Date.now() })
+
+                        await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL)=> {
+                            DB_post(downloadURL);
+                        });
+                    },
+
+                );
+                
+            }   
+
+            const DB_post = async(url) =>{
+                if (url==null) {
+                    return;
+                }
+                await addDoc(postsCollectionRef, {postTitle: newPostTitle, postText: newPostText, author: newAuthor, category: newCategory, photoURL: url, date: Date.now() })
             }
-        }
-    }
 
     return (
         <div className="post-form">

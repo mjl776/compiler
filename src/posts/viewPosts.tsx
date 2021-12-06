@@ -70,17 +70,17 @@ const ViewPosts = () => {
                 <Link className = "posts" key="{post}" to = {"/posts/" + post.id}>
                     <div className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
-                            <div className = "post-content" >
-                            <div>
+                            <div className = "post-content"  key = {post.id} >
+                            <div  key = {post.photoUrl} >
                                 <img src={post.photoURL} className = "view-posts-photo" alt= "placeholder"/>
                             </div>
-                                <div className = "post-title-view-posts">
+                                <div className = "post-title-view-posts" key = {post.postTitle} >
                                     { post.postTitle }
                                 </div>
-                                <div className = "post-author-view-posts">
+                                <div className = "post-author-view-posts"  key = {post.author} >
                                     {post.author}
                                 </div>
-                                <div className = "post-author-view-posts">
+                                <div className = "post-author-view-posts" key = {post.category}>
                                     {post.category}
                                 </div>
                             </div>
