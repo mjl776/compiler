@@ -65,7 +65,7 @@
 .outside-border-posts {
     padding: 10px;
     margin: 0 auto;
-    width: 300px;
+    width: 400px;
 }
 
 .inside-border-posts {
@@ -92,7 +92,7 @@
 }
 
 .post-author-view-posts {
-
+    font-weight: bold;
 }
 .post-title-view-posts {
     font-weight: bold;

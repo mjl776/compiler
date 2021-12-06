@@ -4,8 +4,13 @@ import { db } from "../firebase/firebase"
 import "./viewPosts.css"
 import { Link } from "react-router-dom";
 
+// Parallel divs
 import { Row, Col } from 'react-simple-flex-grid';
 import "react-simple-flex-grid/lib/main.css";
+
+// Motion LI
+import { motion } from 'framer-motion'
+
 
 const ViewPosts = () => {
     // The variable for usestate needs to have a declared type
@@ -58,9 +63,9 @@ const ViewPosts = () => {
             <div className = "blog-posts-title">
                 Blog Posts
             </div>
-            <div className = "outside-border-searchbar">
+            <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-searchbar">
                 <input className = "author-searchBar" placeholder="Name ..." />
-            </div>
+            </motion.div>
             <Row>
 
 <Col span={6}>
@@ -68,7 +73,7 @@ const ViewPosts = () => {
 
             return(
                 <Link className = "posts" to = {"/posts/" + post.id}>
-                    <div className = "outside-border-posts"> 
+                    <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
                             <div  key = {post.photoUrl} >
@@ -80,12 +85,12 @@ const ViewPosts = () => {
                                 <div className = "post-author-view-posts" >
                                     {post.author}
                                 </div>
-                                <div className = "post-author-view-posts" >
-                                    {post.category}
+                                <div className = "post-category-view-posts" >
+                                    {"Category: " + post.category}
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </Link>
             );
     })}
@@ -96,7 +101,7 @@ const ViewPosts = () => {
     {rightPosts.map((post: any) => {
             return(
                 <Link className = "posts" to = {"/posts/" + post.id}>
-                    <div className = "outside-border-posts"> 
+                    <motion.div whileHover = {{ scale: 1.05 }}  className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
                             <div>
@@ -113,7 +118,7 @@ const ViewPosts = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </Link>
             );
     })}
