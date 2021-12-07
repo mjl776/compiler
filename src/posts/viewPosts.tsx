@@ -28,13 +28,13 @@ const ViewPosts = () => {
         const data = await getDocs(postsCollectionRef);
 
            setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        //    console.log(posts, 26);
+           console.log(posts, 26);
         }
         getPosts();
         
     }, [])
-    // console.log(posts, 29);
-    // console.log(posts[0], 30);
+    console.log(posts, 29);
+     console.log(posts[0], 30);
 
     let leftPosts = [];
     let rightPosts: any[]; 
