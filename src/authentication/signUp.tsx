@@ -114,9 +114,9 @@ const SignUp = () => {
               <button className = "signup-button" onClick={register}>
                   Signup
               </button>
-          </div>
-          <h4> User Logged In: </h4>
+              <h4> User Logged In: </h4>
               {user?.email}
+          </div>
       </div>
     );
 }

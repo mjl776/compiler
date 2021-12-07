@@ -2,11 +2,13 @@
 .create-post-title {
     padding: 10px;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 600;
+    color: rgb(124, 124, 124);
 }
 
 .create-post-slogan {
     padding: 2px;
+    color: rgb(124, 124, 124);
 }
 
 .create-post-title-box {
@@ -14,7 +16,7 @@
     height: 34px;
     font-size: 17px;
     text-align: start;
-    border: 2px solid black;
+    border: 2px solid rgb(124, 124, 124);
     border-radius: 10px;
 }
 
@@ -28,7 +30,7 @@
     font-family: Montserrat;
     height:150px;
     width: 184px;
-    border: 2px solid black;
+    border: 2px solid rgb(124, 124, 124);
     border-radius: 8%;
     resize: none;
     padding: 3px;
@@ -36,8 +38,8 @@
 }
 
 .create-post-button {
-    color: black;
-    background-color: #5EF59B;
+    color: rgb(199, 199, 199);
+    background-color: #304c81;
     width: 116px;
     height: 38px;
     font-family: Montserrat;
@@ -49,4 +51,6 @@
 
 .create-post-button-outside-border {
     padding: 7px;
+    color: rgb(124, 124, 124);
+    font-weight: 500;
 }
