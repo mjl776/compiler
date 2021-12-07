@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../firebase/firebase"
-import "./viewPosts.css"
+//import "./viewPosts.css"
 import { Link } from "react-router-dom";
 
 // Parallel divs
@@ -11,7 +11,7 @@ import "react-simple-flex-grid/lib/main.css";
 // Motion LI
 import { motion } from 'framer-motion'
 
-const ViewPosts = () => {
+const ViewProfile = () => {
     // The variable for usestate needs to have a declared type
     // so when we pull data for usestate, the variables can decide what type they need
     // we use type "any" here to clear any confusing errors
@@ -22,7 +22,7 @@ const ViewPosts = () => {
     useEffect(() => {
         // Asynchronous Function from the API Promise. Promise = Binary Result of the API Call
 
-        const postsCollectionRef = collection(db, "posts");
+        const postsCollectionRef = collection(db, "users");
         const getPosts = async () => {
         // Logic from getting the posts from FireBase
         const data = await getDocs(postsCollectionRef);
@@ -32,9 +32,10 @@ const ViewPosts = () => {
         }
         getPosts();
         
-    }, []);
-    // console.log(posts, 29);
-    // console.log(posts[0], 30);
+    }, [])
+    console.log(posts, 29);
+     console.log(posts[0], 30);
+     const usersRef = collection(db, "users");
 
     let leftPosts = [];
     let rightPosts: any[]; 
@@ -55,8 +56,7 @@ const ViewPosts = () => {
         console.log()
     }   
 
-    // console.log(leftPosts, 36);
-    // console.log(rightPosts, 37);
+
     return (
         <div className = "view-posts-container"> 
             <div className = "blog-posts-title">
@@ -75,17 +75,17 @@ const ViewPosts = () => {
                     <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
-                            <div  key = {post.photoUrl} >
-                                <img src={post.photoURL} className = "view-posts-photo" alt= "placeholder"/>
-                            </div>
                                 <div className = "post-title-view-posts" >
-                                    { post.postTitle }
+                                    { post.username }
                                 </div>
                                 <div className = "post-author-view-posts" >
-                                    {post.author}
+                                    {"Github" + post.github}
                                 </div>
                                 <div className = "post-category-view-posts" >
-                                    {"Category: " + post.category}
+                                    {"LinkedIn: " + post.linkedin}
+                                </div>
+                                <div className = "post-category-view-posts" >
+                                    {"Instagram: " + post.instagram}
                                 </div>
                             </div>
                         </div>
@@ -103,17 +103,17 @@ const ViewPosts = () => {
                     <motion.div whileHover = {{ scale: 1.05 }}  className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
-                            <div>
-                                <img src={ post.photoURL } className = "view-posts-photo" alt= "placeholder"/>
-                            </div>
-                                <div className = "post-title-view-posts">
-                                    { post.postTitle }
+                            <div className = "post-title-view-posts" >
+                                    { post.username }
                                 </div>
-                                <div className = "post-author-view-posts">
-                                    {post.author}
+                                <div className = "post-author-view-posts" >
+                                    {"Github" + post.github}
                                 </div>
-                                <div className = "post-category-view-posts">
-                                    {"Category: " + post.category}
+                                <div className = "post-category-view-posts" >
+                                    {"LinkedIn: " + post.linkedin}
+                                </div>
+                                <div className = "post-category-view-posts" >
+                                    {"Instagram: " + post.instagram}
                                 </div>
                             </div>
                         </div>
@@ -126,4 +126,4 @@ const ViewPosts = () => {
         </div>
     );
 }
-export default ViewPosts;
+export default ViewProfile;
