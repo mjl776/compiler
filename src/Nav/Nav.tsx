@@ -13,6 +13,7 @@ const Nav = () => {
                                 <Link className = "link" to = "/sign-in"> <motion.li whileHover = {{ scale: 1.1 }}> Sign In </motion.li> </Link> 
                                 <Link className = "link" to = "/sign-up"> <motion.li whileHover = {{ scale: 1.1 }}>  Sign Up  </motion.li> </Link>
                                 <Link className = "link" to = "/posts">  <motion.li whileHover = {{ scale: 1.1 }}> Posts </motion.li> </Link> 
+                                <Link className = "link" to = "/users">  <motion.li whileHover = {{ scale: 1.1 }}> Users </motion.li> </Link> 
                             </ul>
                         </nav>
                 </div>
