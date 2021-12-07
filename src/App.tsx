@@ -19,7 +19,7 @@ const App = () => {
             <Route path="/" exact component={HomePage}></Route>
             <Route path="/sign-in" component={signIn}></Route>
             <Route path="/sign-up" component={signUp}></Route>
-            <Route path="/viewProfile" component={viewProfile}></Route>
+            <Route path="/users" component={viewProfile}></Route>
             <Route exact path="/posts" component={CreatePost}></Route>
             <Route path= "/posts/:id" component={SinglePost}></Route>
         </Switch>

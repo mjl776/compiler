@@ -60,10 +60,10 @@ const ViewProfile = () => {
     return (
         <div className = "view-posts-container"> 
             <div className = "blog-posts-title">
-                Blog Posts
+                Users
             </div>
             <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-searchbar">
-                <input className = "author-searchBar" placeholder="Name ..." />
+                <input className = "author-searchBar" placeholder="Search for a user ..." />
             </motion.div>
             <Row>
 
@@ -71,21 +71,21 @@ const ViewProfile = () => {
     {leftPosts.map((post: any) => {
 
             return(
-                <Link className = "posts" to = {"/posts/" + post.id}>
+                <Link className = "posts" to = {"/users/" + post.id}>
                     <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
                                 <div className = "post-title-view-posts" >
                                     { post.username }
                                 </div>
-                                <div className = "post-author-view-posts" >
-                                    {"Github" + post.github}
+                                <div className = "post-category-view-posts" >
+                                    { post.github}
                                 </div>
                                 <div className = "post-category-view-posts" >
-                                    {"LinkedIn: " + post.linkedin}
+                                    { post.linkedin}
                                 </div>
                                 <div className = "post-category-view-posts" >
-                                    {"Instagram: " + post.instagram}
+                                    { post.instagram }
                                 </div>
                             </div>
                         </div>
@@ -99,21 +99,21 @@ const ViewProfile = () => {
 <Col span={6}>
     {rightPosts.map((post: any) => {
             return(
-                <Link className = "posts" to = {"/posts/" + post.id}>
+                <Link className = "posts" to = {"/users/" + post.id}>
                     <motion.div whileHover = {{ scale: 1.05 }}  className = "outside-border-posts"> 
                         <div className = "inside-border-posts">
                             <div className = "post-content" >
-                            <div className = "post-title-view-posts" >
+                                <div className = "post-title-view-posts" >
                                     { post.username }
                                 </div>
-                                <div className = "post-author-view-posts" >
-                                    {"Github" + post.github}
+                                <div className = "post-category-view-posts" >
+                                    { post.github}
                                 </div>
                                 <div className = "post-category-view-posts" >
-                                    {"LinkedIn: " + post.linkedin}
+                                    { post.linkedin}
                                 </div>
                                 <div className = "post-category-view-posts" >
-                                    {"Instagram: " + post.instagram}
+                                    { post.instagram }
                                 </div>
                             </div>
                         </div>
