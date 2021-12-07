@@ -69,12 +69,11 @@ const onFileChange = async (event: any) => {
 
 
 
-    const createPost = async () => {
+const createPost = async () => {
         if (!file) return;
             // Listen for state changes, errors, and completion of the upload.
             const storageRef = ref(storage, "post-photos/" + user.uid + "/" + newPostTitle + "/" + fileName);
             const uploadFile = uploadBytesResumable(storageRef, file);
-            var url = "";
             uploadFile.on('state_changed',
                     (snapshot) => {
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -102,9 +101,8 @@ const onFileChange = async (event: any) => {
                 
             }   
 
-
             // post photos to db
-            const DB_post = async(url) =>{
+            const DB_post = async(url: any) =>{
                 if (url==null) {
                     return;
                 }
@@ -144,6 +142,7 @@ const onFileChange = async (event: any) => {
                     onChange = {(event) =>{
                         setNewPostText(event.target.value);
                     }}
+                    className ="text-area-for-posts"
                 >
                 </textarea>
             </div>
