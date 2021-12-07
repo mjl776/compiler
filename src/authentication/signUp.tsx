@@ -5,12 +5,24 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import './signUp.css';
-import { auth } from "../firebase/firebase";
+import { auth, db } from "../firebase/firebase";
+
+import {
+  collection,
+  addDoc,
+  doc
+} from "firebase/firestore";
 
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [user, setUser]: any = useState({});
+  const [newUserName, setUserName] = useState("");
+  const [newGitHub, setGitHub] = useState("");
+  const [newLinkedIn, setLinkedIn] = useState("");
+  const [newInstagram, setInstagram] = useState("");
+
+  const usersCollectionRef = collection(db, "users");
 
   onAuthStateChanged(auth, (currentUser) => {
     if(currentUser)      
@@ -23,7 +35,11 @@ const SignUp = () => {
         auth,
         registerEmail,
         registerPassword
-      );
+      ).then(async cred => {
+        const post = await addDoc(usersCollectionRef, {username: newUserName, linkedin: newLinkedIn, 
+          github: newGitHub, instagram: newInstagram, user_id: cred.user.uid})
+      });
+
       console.log(user);
     } catch (error: any) {
       console.log(error.message);
@@ -33,16 +49,13 @@ const SignUp = () => {
     return (
       <div>
           <div className = "sign-up-page-title">
-              SignUp Page
+              Sign Up
           </div>
+          <div className = "sign-up-slogan">
+                Welcome to the sign up page!
+          </div> 
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "First Name.."/>
-          </div>
-          <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Last Name.."/>
-          </div>
-          <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "username..." 
+            <input type = "text" className = "username-box" placeholder = "email..." 
             
             onChange={(event) => {
               setRegisterEmail(event.target.value);
@@ -59,13 +72,42 @@ const SignUp = () => {
             />
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "github url.."/>
+            <input type = "text" className = "username-box" placeholder = "username..."
+            
+            onChange={(event) => {
+              setUserName(event.target.value);
+
+            }}
+            
+            />
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "linkedin url.."/>
+            <input type = "text" className = "username-box" placeholder = "Github"
+            onChange={(event) => {
+              setGitHub(event.target.value)
+
+            }}
+            />
           </div>
           <div className = "username-box-outside-border">
-            <input type = "text" className = "username-box" placeholder = "Instagram url.."/>
+            <input type = "text" className = "username-box" placeholder = "linkedin"
+            
+            onChange={(event) => {
+              setLinkedIn(event.target.value)
+
+            }}
+            
+            />
+          </div>
+          <div className = "username-box-outside-border">
+            <input type = "text" className = "username-box" placeholder = "Instagram"
+            
+            onChange={(event) => {
+              setInstagram(event.target.value)
+
+            }}
+            
+            />
           </div>
           <div className = "signup-button-outside-border">
             

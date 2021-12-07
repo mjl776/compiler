@@ -1,12 +1,11 @@
 import React from 'react';
 import "./Homepage.css";
+import ViewPosts from '../posts/viewPosts';
 
 const HomePage = () => {
     return (
-        <div className = "container">
-            <div className = "blog-posts-title">
-                Blog Posts
-            </div>
+        <div className = "home-page-container">
+            <ViewPosts></ViewPosts>
         </div>
     );
 };

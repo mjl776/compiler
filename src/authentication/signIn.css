@@ -1,32 +1,53 @@
 
 .sign-in-page-title {
-    padding: 20px;
+    padding: 10px;
     font-size: 28px;
-    color: darkblue;
+    font-weight: bold;
 }
 
-.username-box {
-    padding: 5px;
+.sign-in-slogan {
+    padding: 2px;
 }
 
-.username-box-outside-border {
-    padding: 5px;
+.email-box {
+    width: 150x;
+    height: 34px;
+    font-size: 17px;
+    text-align: start;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.email-box-outside-border {
+    font-family: Montserrat;
+    padding: 7px;
 }
 
 .password-box {
-    padding: 5px;
+    width: 150x;
+    height: 34px;
+    font-size: 17px;
+    text-align: start;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .password-box-outside-border {
-    padding: 5px;
+    font-family: Montserrat;
+    padding: 7px;
 }
 
 .login-button {
-    color: lightblue;
-    background-color: darkblue;
-    width: 80px;
+    color: black;
+    background-color: #5EF59B;
+    width: 116px;
+    height: 38px;
+    font-family: Montserrat;
+    border-style: none;
+    border-radius: 30px;
+    padding: 3px;
 }
 
 .login-button-outside-border {
-    padding: 5px;
+    padding: 7px;
 }

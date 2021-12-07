@@ -2,28 +2,13 @@ nav {
     float: right;
 }
 
-header {
+.container {
+    margin: 0 auto;
     color:black;
     overflow:auto;
-    padding: 20px;
-    font-weight: bold;
+    padding: 30px;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* .text-box {
-    float: left;
-    padding: 8px;
-    border: 1px solid black;
-    margin-top: 17px;
-    margin-right: 16px;
-    font-size: 17px;
-}  
- */
- 
 nav ul {
     margin: 0;
     padding: 0;
@@ -33,7 +18,7 @@ nav ul {
 nav li {
     display: inline-block;
     margin-left: 70px;
-    padding-top: 29px;
+    padding-top: 23px;
     font-size: 20px;
     position: relative;
 }
@@ -42,6 +27,7 @@ nav li {
     float: left;
     padding-top: 15px;
     font-size: 40px;
+    font-weight: bold;
 }
 
 .compiler-slogan {
@@ -52,3 +38,4 @@ nav li {
     text-decoration: none;
     color: black;
 }
+  
