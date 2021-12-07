@@ -69,7 +69,7 @@ const onFileChange = async (event: any) => {
 
 
 
-    const createPost = async () => {
+const createPost = async () => {
         if (!file) return;
             // Listen for state changes, errors, and completion of the upload.
             const storageRef = ref(storage, "post-photos/" + user.uid + "/" + newPostTitle + "/" + fileName);
@@ -142,6 +142,7 @@ const onFileChange = async (event: any) => {
                     onChange = {(event) =>{
                         setNewPostText(event.target.value);
                     }}
+                    className ="text-area-for-posts"
                 >
                 </textarea>
             </div>

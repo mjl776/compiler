@@ -1,0 +1,53 @@
+
+.text-area-for-comments {
+    font-family: Montserrat;
+    height:150px;
+    width: 184px;
+    border: 2px solid black;
+    border-radius: 8%;
+    resize: none;
+    padding: 3px;
+    font-size: 17px;
+}
+
+.comment-creation-div {
+    font-family: Montserrat;
+    padding: 10px;
+}
+
+.comments-section-title {
+    font-family: Montserrat;
+    padding: 10px;
+}
+
+.comments {
+    text-decoration: none;
+    color: black;
+}
+
+.single-comment-inside {
+    background-color: white;
+    border-radius: 6px;
+}
+
+.single-comment-outside {
+    margin: auto;
+}
+
+.single-comment-name {
+    font-weight: bold;
+    font-style: 10px;
+    text-align: left;
+    padding: 2px;
+}
+
+.single-comment-text {
+    text-align: left;
+    padding: 3px;
+}
+
+
+
+.comment-content {
+    padding: 5px;
+}

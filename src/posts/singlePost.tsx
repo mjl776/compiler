@@ -3,6 +3,10 @@ import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase/firebase"
 import  photo  from "./placeholder.png"
 import "./singlePost.css"
+import { Link } from 'react-router-dom'
+import CommentsSection from './comments_section/commentSection'
+
+
 const SinglePost = () => {
 
     // Gets id of post
@@ -25,25 +29,26 @@ const SinglePost = () => {
 
     return (
         <div className = "single-post-container">
-            <div className = "outside-border-post"> 
-                <div className = "inside-border-post">
-                    <div className = "title">
-                        {post.postTitle}
-                    </div>
-                    <div className = "post-photo">
-                        <img src={post.photoURL} alt= "post photo"/>
-                    </div>
-                    <div className = "author">
-                        { "By " + post.author}
-                    </div>
-                    <div>
-                        { "Date: " + newDate }
-                    </div>
-                    <div className = "post-text">
-                        {post.postText}
+                <div className = "outside-border-post"> 
+                    <div className = "inside-border-post">
+                        <div className = "title">
+                            {post.postTitle}
+                        </div>
+                        <div className = "post-photo">
+                            <img src={post.photoURL} alt= "post photo"/>
+                        </div>
+                        <div className = "author">
+                            { "By " + post.author}
+                        </div>
+                        <div>
+                            { "Date: " + newDate }
+                        </div>
+                        <div className = "post-text">
+                            {post.postText}
+                        </div>
                     </div>
                 </div>
-            </div>
+                <CommentsSection></CommentsSection>
         </div>
     );
 }
