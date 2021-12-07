@@ -6,7 +6,12 @@ import {
   signOut,
 } from "firebase/auth";
 import './signIn.css';
-import { auth } from "../firebase/firebase";
+import { auth} from "../firebase/firebase";
+import db from '../firebase/firebase'
+
+
+
+
 
 const SignIn = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -25,6 +30,7 @@ const SignIn = () => {
         loginPassword
       );
       console.log(user.user.email);
+     // console.log(db.collection("users"))
     } catch (error: any) {
       console.log(error.message);
     }
