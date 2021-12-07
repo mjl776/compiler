@@ -33,6 +33,7 @@
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: rgb(124, 124, 124);
 }
 
 .view-posts-container {
@@ -44,7 +45,7 @@
     height: 34px;
     font-size: 17px;
     text-align: start;
-    border: 2px solid black;
+    border: 2px solid rgb(124, 124, 124);
     border-radius: 10px;
 }
 

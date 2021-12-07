@@ -88,7 +88,7 @@ const onFileChange = async (event: any) => {
 
 
             // post photos to db
-            const DB_post = async(url) =>{
+            const DB_post = async(url: any) =>{
                 if (url==null) {
                     return;
                 }
