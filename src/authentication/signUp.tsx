@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 
 import {motion} from 'framer-motion';
+import { useHistory } from "react-router-dom"
 
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -23,9 +24,8 @@ const SignUp = () => {
   const [newGitHub, setGitHub] = useState("");
   const [newLinkedIn, setLinkedIn] = useState("");
   const [newInstagram, setInstagram] = useState("");
-
+  var history = useHistory();
   const usersCollectionRef = collection(db, "users");
-
   onAuthStateChanged(auth, (currentUser) => {
     if(currentUser)      
       setUser(currentUser);
@@ -40,7 +40,9 @@ const SignUp = () => {
       ).then(async cred => {
         const post = await addDoc(usersCollectionRef, {username: newUserName, linkedin: newLinkedIn, 
           github: newGitHub, instagram: newInstagram, user_id: cred.user.uid})
-      });
+      }).then(() =>{
+        history.push("/");
+      })
 
       console.log(user);
     } catch (error: any) {
