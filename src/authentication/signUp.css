@@ -4,12 +4,12 @@
     font-size: 28px;
     font-weight: bold;
     font-weight: 600;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
 }
 
 .sign-up-slogan {
     padding: 2px;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
 }
 .username-box {
     width: 150x;
@@ -52,6 +52,6 @@
 
 .signup-button-outside-border {
     padding: 7px;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
     font-weight: 500;
 }

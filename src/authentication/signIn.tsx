@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import './signIn.css';
 import { auth } from "../firebase/firebase";
+import { useHistory } from "react-router-dom";
+
 
 const SignIn = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -30,6 +32,7 @@ const SignIn = () => {
     }
     
   };
+ 
     return (
       <div>
           <div className = "sign-in-page-title">
@@ -52,7 +55,10 @@ const SignIn = () => {
             />
           </div>
           <div className = "login-button-outside-border">
-              <button className = "login-button" onClick={login}>
+          <button className = "login-button" 
+                
+
+              >
                   Login
               </button>
               <h4> User Logged In: </h4>
