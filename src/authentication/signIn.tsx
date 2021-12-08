@@ -14,6 +14,7 @@ const SignIn = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser]: any = useState({});
+  const history = useHistory();
 
   onAuthStateChanged(auth, (currentUser) => {
     if(currentUser)
@@ -25,20 +26,15 @@ const SignIn = () => {
         auth,
         loginEmail,
         loginPassword
-      );
-      console.log(user.user.email);
+      ).then(()=> {
+        history.push('/');
+      });
     } catch (error: any) {
       console.log(error.message);
     }
     
 
   };
-  const history = useHistory();
-
-  const routeChange = () =>{ 
-    let path = `/`; 
-    history.push(path);
-  }
  
     return (
       <div>
@@ -65,9 +61,7 @@ const SignIn = () => {
           <motion.button whileHover = {{ scale: 1.1 }} className = "login-button" 
                 onClick={() => {
                   login();
-                  routeChange();
               	}}
-
               >
                   Login
               </motion.button>

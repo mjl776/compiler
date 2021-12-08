@@ -5,6 +5,7 @@ import db, { auth } from '../../firebase/firebase';
 import "./commentSection.css"
 import { motion } from 'framer-motion'
 import { onAuthStateChanged } from 'firebase/auth';
+import { useHistory } from "react-router-dom";
 
 const CommentsSection = () => {
     const [comment, setComment] = useState(null);
@@ -15,6 +16,9 @@ const CommentsSection = () => {
     // Auth
     const [user, setUser]: any = useState({});
     const [uid,setUID]: any = useState(null);
+
+    // Routing
+    const history = useHistory();
 
     var postid = window.location.pathname.split("/");
     var stringid = postid[postid.length-1].toString();
@@ -36,7 +40,6 @@ const CommentsSection = () => {
         const q = query(usersRef, where("user_id", "==", uid));
 
         onSnapshot(q, (snapshot) => {
-            let user = {};
             snapshot.docs.forEach(doc => {
             setUserName(doc.data().username);
             })
@@ -55,7 +58,9 @@ const CommentsSection = () => {
     }, []);
 
     const createComment = async () => {
-        await addDoc(commentsCollectionRef, {user: userName, user_uid: uid, comment: comment });
+        await addDoc(commentsCollectionRef, {user: userName, user_uid: uid, comment: comment }).then(() => {
+            history.push("/posts/" + stringid);
+        });
     }
 
     return (

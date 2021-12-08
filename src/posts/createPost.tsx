@@ -16,6 +16,9 @@ import { uploadBytesResumable } from 'firebase/storage';
 import {
     onAuthStateChanged,
   } from "firebase/auth";
+import { useHistory } from "react-router-dom";
+
+
 
 const CreatePost = () => {
     // Initialize values to be used using useState in const's
@@ -31,6 +34,9 @@ const CreatePost = () => {
     // Auth
     const [user, setUser]: any = useState({});
     const [uid,setUID]: any = useState(null);
+
+    // Routing
+    const history = useHistory();
 
 // signs user in 
 onAuthStateChanged(auth, (currentUser) => {
@@ -94,6 +100,8 @@ const createPost = async () => {
                     async () => {
                         await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL)=> {
                             DB_post(downloadURL);
+                        }).then(()=> {
+                            history.push('/');
                         });
                     },
 
