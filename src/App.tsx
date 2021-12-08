@@ -8,13 +8,24 @@ import signUp from './authentication/signUp';
 import HomePage from "./HomePage/Homepage";
 import SinglePost from './posts/singlePost';
 import viewProfile from './viewProfile/viewProfile';
-
+import { makeStyles } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
 const App = () => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      minHeight: '100vh',
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/city-wave.gif'})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    },
+  }));
+  const classes = useStyles();
 
   return (
     <Router>
+      <div className={classes.root}>
       <div className="App">
-        <Nav></Nav> 
+      <Nav></Nav>
         <Switch>
             <Route path="/" exact component={HomePage}></Route>
             <Route path="/sign-in" component={signIn}></Route>
@@ -23,6 +34,7 @@ const App = () => {
             <Route exact path="/posts" component={CreatePost}></Route>
             <Route path= "/posts/:id" component={SinglePost}></Route>
         </Switch>
+      </div> 
       </div>
     </Router>
   );

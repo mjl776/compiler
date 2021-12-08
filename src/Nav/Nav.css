@@ -4,7 +4,7 @@ nav {
 
 .container {
     margin: 0 auto;
-    color:rgb(124, 124, 124);
+    color:rgb(0, 0, 0);
     overflow:auto;
     padding: 30px;
 }
@@ -36,6 +36,6 @@ nav li {
 
 .link {
     text-decoration: none;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
 }
   

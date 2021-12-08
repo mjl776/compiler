@@ -3,12 +3,12 @@
     padding: 10px;
     font-size: 28px;
     font-weight: 600;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
 }
 
 .create-post-slogan {
     padding: 2px;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
 }
 
 .create-post-title-box {
@@ -51,6 +51,6 @@
 
 .create-post-button-outside-border {
     padding: 7px;
-    color: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
     font-weight: 500;
 }
