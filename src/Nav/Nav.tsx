@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
+import SignedIn from "./Signed_in_components"
 import "./Nav.css"
 
+
 const Nav = () => {
+
     return (
                 <div className = "container">
                     <div className = "compiler">compiler</div>
                         <nav>
                             <ul>
+                                <SignedIn></SignedIn> 
                                 <Link className = "link" to = "/"><motion.li whileHover = {{ scale: 1.1 }}>  Explorer Page </motion.li> </Link>
-                                <Link className = "link" to = "/sign-in"> <motion.li whileHover = {{ scale: 1.1 }}> Sign In </motion.li> </Link> 
-                                <Link className = "link" to = "/sign-up"> <motion.li whileHover = {{ scale: 1.1 }}>  Sign Up  </motion.li> </Link>
                                 <Link className = "link" to = "/posts">  <motion.li whileHover = {{ scale: 1.1 }}> Posts </motion.li> </Link> 
-                                <Link className = "link" to = "/users">  <motion.li whileHover = {{ scale: 1.1 }}> Users </motion.li> </Link> 
+                                <Link className = "link" to = "/users">  <motion.li whileHover = {{ scale: 1.1 }}> Users </motion.li> </Link>
                             </ul>
                         </nav>
                 </div>

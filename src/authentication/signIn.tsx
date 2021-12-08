@@ -7,8 +7,8 @@ import {
 } from "firebase/auth";
 import './signIn.css';
 import { auth } from "../firebase/firebase";
-import { useHistory } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
+import {motion} from 'framer-motion'
 
 const SignIn = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -62,7 +62,7 @@ const SignIn = () => {
             />
           </div>
           <div className = "login-button-outside-border">
-          <button className = "login-button" 
+          <motion.button whileHover = {{ scale: 1.1 }} className = "login-button" 
                 onClick={() => {
                   login();
                   routeChange();
@@ -70,11 +70,18 @@ const SignIn = () => {
 
               >
                   Login
-              </button>
-              <h4> User Logged In: </h4>
-              {user?.email}
-
+              </motion.button>
           </div>
+          <div className = "account-maker-redirect-text">
+            Need a account? 
+          </div>
+          <div className = "login-button-outside-border">
+              <motion.button whileHover = {{ scale: 1.1 }}className = "login-button">
+                <Link className = "link-sign-up" to = "/sign-up"> 
+                       Click Here
+                </Link>
+              </motion.button>
+            </div>
       </div>
       
     );

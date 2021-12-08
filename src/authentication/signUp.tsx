@@ -13,6 +13,8 @@ import {
   doc
 } from "firebase/firestore";
 
+import {motion} from 'framer-motion';
+
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -110,12 +112,9 @@ const SignUp = () => {
             />
           </div>
           <div className = "signup-button-outside-border">
-            
-              <button className = "signup-button" onClick={register}>
-                  Signup
-              </button>
-              <h4> User Logged In: </h4>
-              {user?.email}
+              <motion.button whileHover = {{ scale: 1.1 }} className = "signup-button" onClick={register}>
+                  Sign up
+              </motion.button>
           </div>
       </div>
     );
