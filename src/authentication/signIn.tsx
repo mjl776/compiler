@@ -31,7 +31,14 @@ const SignIn = () => {
       console.log(error.message);
     }
     
+
   };
+  const history = useHistory();
+
+  const routeChange = () =>{ 
+    let path = `/`; 
+    history.push(path);
+  }
  
     return (
       <div>
@@ -56,7 +63,10 @@ const SignIn = () => {
           </div>
           <div className = "login-button-outside-border">
           <button className = "login-button" 
-                
+                onClick={() => {
+                  login();
+                  routeChange();
+              	}}
 
               >
                   Login

@@ -27,8 +27,7 @@ const App = () => {
       <div className="App">
       <Nav></Nav>
         <Switch>
-            <Route path="/" exact component={HomePage}>
-            </Route>
+            <Route path="/" exact component={HomePage}></Route>
             <Route path="/sign-in" component={signIn}></Route>
             <Route path="/sign-up" component={signUp}></Route>
             <Route path="/users" component={viewProfile}></Route>
