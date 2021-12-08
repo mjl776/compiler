@@ -60,3 +60,11 @@
 .test{
     background-image: url('http://localhost:3001/city-wave.gif');
 }
+
+.link-sign-up {
+    text-decoration: none;
+    color: rgb(199, 199, 199);
+}
+.account-maker-redirect-text {
+    padding-top: 30px;
+}
