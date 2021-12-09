@@ -32,7 +32,7 @@ const ViewPosts = () => {
         }
         getPosts();
         
-    }, []);
+        }, []);
     // console.log(posts, 29);
     // console.log(posts[0], 30);
 
