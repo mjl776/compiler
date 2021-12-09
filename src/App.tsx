@@ -8,6 +8,7 @@ import signUp from './authentication/signUp';
 import ExplorerPage from "./HomePage/ExplorerPage";
 import SinglePost from './posts/singlePost';
 import viewProfile from './viewProfile/viewProfile';
+import SingleProfile from "./viewProfile/singleProfile"
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 const App = () => {
@@ -30,9 +31,10 @@ const App = () => {
                 <Route path="/" exact component={ExplorerPage}></Route>
                 <Route path="/sign-in" component={signIn}></Route>
                 <Route path="/sign-up" component={signUp}></Route>
-                <Route path="/users" component={viewProfile}></Route>
+                <Route exact path="/users" component={viewProfile}></Route>
                 <Route exact path="/posts" component={CreatePost}></Route>
                 <Route path= "/posts/:id" component={SinglePost}></Route>
+                <Route path= "/users/:id" component= {SingleProfile}></Route>
             </Switch>
         </div> 
       </div>

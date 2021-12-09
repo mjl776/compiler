@@ -28,13 +28,10 @@ const ViewProfile = () => {
         const data = await getDocs(postsCollectionRef);
 
            setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-           console.log(posts, 26);
         }
         getPosts();
         
     }, [])
-    console.log(posts, 29);
-     console.log(posts[0], 30);
      const usersRef = collection(db, "users");
 
     let leftPosts = [];
@@ -53,7 +50,6 @@ const ViewProfile = () => {
     else{ 
         leftPosts = posts.slice(posts.length/2, posts.length);
         rightPosts = posts.slice(0, posts.length/2);
-        console.log()
     }   
 
 

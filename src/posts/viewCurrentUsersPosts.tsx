@@ -17,7 +17,6 @@ const ViewPosts = () => {
     // we use type "any" here to clear any confusing errors
     // and we also use it in our html 
     const [posts, setPosts] = useState<any>([]);
-    const [postsEven, setPostsEven] = useState<any>([]);
 
     useEffect(() => {
         // Asynchronous Function from the API Promise. Promise = Binary Result of the API Call
@@ -26,7 +25,7 @@ const ViewPosts = () => {
         const getPosts = async () => {
         // Logic from getting the posts from FireBase
         const data = await getDocs(postsCollectionRef);
-           
+        
            setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
            console.log(posts, 26);
         }
