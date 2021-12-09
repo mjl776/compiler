@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import "./Nav.css"
 
-const SignedIn = () => {
+const SignOut = () => {
     // Auth
     const [user, setUser]: any = useState({});
     // signs user in 
@@ -15,12 +15,20 @@ const SignedIn = () => {
         }
     });
 
+    const out = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
+
     return (     
         <nav>      
-            { !user && <Link className = "link" to = "/sign-in"> <motion.li whileHover = {{ scale: 1.1 }}> Sign In </motion.li> </Link> }
+            <Link className = "link" to = "/sign-in" onClick= {out}> <motion.li whileHover = {{ scale: 1.1 }}> Sign Out </motion.li> </Link> 
         </nav>    
     );
     
 } 
 
-export default SignedIn;
+export default SignOut;
