@@ -24,17 +24,17 @@ const App = () => {
   return (
     <Router>
       <div className={classes.root}>
-      <div className="App">
-      <Nav></Nav>
-      <Switch>
-          <Route path="/" exact component={ExplorerPage}></Route>
-          <Route path="/sign-in" component={signIn}></Route>
-          <Route path="/sign-up" component={signUp}></Route>
-          <Route path="/users" component={viewProfile}></Route>
-          <Route exact path="/posts" component={CreatePost}></Route>
-          <Route path= "/posts/:id" component={SinglePost}></Route>
-      </Switch>
-      </div> 
+        <div className="App">
+          <Nav></Nav>
+            <Switch>
+                <Route path="/" exact component={ExplorerPage}></Route>
+                <Route path="/sign-in" component={signIn}></Route>
+                <Route path="/sign-up" component={signUp}></Route>
+                <Route path="/users" component={viewProfile}></Route>
+                <Route exact path="/posts" component={CreatePost}></Route>
+                <Route path= "/posts/:id" component={SinglePost}></Route>
+            </Switch>
+        </div> 
       </div>
     </Router>
   );
