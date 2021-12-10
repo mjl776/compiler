@@ -65,6 +65,19 @@ const CommentsSection = () => {
 
     return (
         <div className = "comments-section-container">
+            <div className = "comment-creation-div">
+                <textarea
+                    placeholder="   Comment"
+                    onChange = {(event) =>{
+                        setComment(event.target.value);
+                    }}
+                    className = "text-area-for-comments "
+                >
+                </textarea>
+                <div className= "create-post-button-outside-border">
+                    <motion.button whileHover = {{ scale: 1.1 }} onClick={createComment} className = "create-post-button"> Post </motion.button>         
+                </div>
+            </div>
             <div className = "comments-section-title">
                 Comments ({ comments.length })
             </div>
@@ -79,25 +92,14 @@ const CommentsSection = () => {
                                 <div className = "single-comment-text">
                                     {comment.comment}
                                 </div>
+                                <div className = "single-comment-text"> 
+                                    reply 
+                                </div>
                             </div>
                         </div>
                 </div>
             );
         })}
-            <div className = "comment-creation-div">
-                <textarea
-                    placeholder="   Comment"
-                    onChange = {(event) =>{
-                        setComment(event.target.value);
-                    }}
-                    className = "text-area-for-comments "
-                >
-                </textarea>
-
-                <div className= "create-post-button-outside-border">
-                    <motion.button whileHover = {{ scale: 1.1 }} onClick={createComment} className = "create-post-button"> Post </motion.button>         
-                </div>
-            </div>
         </div>
     );
 }

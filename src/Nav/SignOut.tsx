@@ -7,14 +7,7 @@ import "./Nav.css"
 
 const SignOut = () => {
     // Auth
-    const [user, setUser]: any = useState({});
-    // signs user in 
-    onAuthStateChanged(auth, (currentUser) => {
-        if(currentUser) {
-            setUser(currentUser);
-        }
-    });
-
+    
     const out = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
