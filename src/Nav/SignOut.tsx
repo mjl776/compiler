@@ -6,8 +6,9 @@ import { motion } from 'framer-motion'
 import "./Nav.css"
 
 const SignOut = () => {
+
     // Auth
-    
+
     const out = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -16,7 +17,7 @@ const SignOut = () => {
           });
     }
 
-    return (     
+    return auth.currentUser && (     
         <nav>      
             <Link className = "link" to = "/sign-in" onClick= {out}> <motion.li whileHover = {{ scale: 1.1 }}> Sign Out </motion.li> </Link> 
         </nav>    

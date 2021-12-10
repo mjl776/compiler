@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 import NotSignedIn from "./not_Signed_in_components"
 import SignOut from "./SignOut";
 import "./Nav.css"
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
-
+import { auth } from '../firebase/firebase'; 
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Nav = () => {
+
+    const [user] = useAuthState(auth);
   
     return (
                 <div className = "container">
@@ -16,7 +17,7 @@ const Nav = () => {
                         <nav>
                             <ul>
                                 <SignOut></SignOut> 
-                                <NotSignedIn></NotSignedIn> 
+                                { !user && <NotSignedIn></NotSignedIn>  }
                                 <Link className = "link" to = "/"><motion.li whileHover = {{ scale: 1.1 }}>  Explorer Page </motion.li> </Link>
                                 <Link className = "link" to = "/posts">  <motion.li whileHover = {{ scale: 1.1 }}> Posts </motion.li> </Link> 
                                 <Link className = "link" to = "/users">  <motion.li whileHover = {{ scale: 1.1 }}> Users </motion.li> </Link>
