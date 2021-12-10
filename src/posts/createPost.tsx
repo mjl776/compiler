@@ -14,7 +14,7 @@ import { storage } from "../firebase/firebase";
 import { ref, getDownloadURL } from '@firebase/storage';
 import { uploadBytesResumable } from 'firebase/storage';
 import {
-    onAuthStateChanged,
+    onAuthStateChanged
   } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 
