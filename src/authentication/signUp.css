@@ -8,9 +8,30 @@
 }
 
 .sign-up-slogan {
+    padding: 3px;
+    color: rgb(0, 0, 0);
+}
+
+.text-field-profile {
+    font-family: Montserrat;
+    padding: 7px;
+}
+
+.text-area-for-posts {
+    font-family: Montserrat;
+    height:100px;
+    width: 184px;
+    border: 2px solid rgb(124, 124, 124);
+    border-radius: 8%;
+    resize: none;
+    padding: 3px;
+}
+
+.create-photo-slogan {
     padding: 2px;
     color: rgb(0, 0, 0);
 }
+
 .username-box {
     width: 150x;
     height: 34px;

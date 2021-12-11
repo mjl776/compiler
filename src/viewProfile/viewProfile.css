@@ -1,0 +1,82 @@
+
+.posts {
+    text-decoration: none;
+    color: black;
+}
+
+.blog-posts-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.view-users {
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+.author-searchBar {
+    width: 150x;
+    height: 34px;
+    font-size: 17px;
+    text-align: start;
+    border: 2px solid rgb(124, 124, 124);
+    border-radius: 10px;
+}
+
+.user-title-view {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.view-posts-photo {
+    width: 250px;
+    height: 140px;
+}
+
+.outside-border-searchbar {
+    padding: 10px;
+}
+
+.outside-border-users {
+    padding: 10px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.inside-border-users {
+    padding: 10px;
+    border-style: solid;
+    background-color: white;
+    border-radius: 10px;
+    height: 230px;
+}
+
+.users {
+    text-decoration: none;
+    color: black;
+}
+
+.users-all-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.view-posts-container {
+    margin: 0 auto;
+}
+
+.user-author-view-posts {
+    font-weight: bold;
+}
+.post-title-view-posts {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.view-posts-photo {
+    width: 250px;
+    height: 140px;
+}

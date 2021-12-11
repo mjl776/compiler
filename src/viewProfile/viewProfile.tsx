@@ -4,6 +4,9 @@ import { db } from "../firebase/firebase"
 //import "./viewPosts.css"
 import { Link } from "react-router-dom";
 
+// Profile
+import "./viewProfile.css"
+
 // Parallel divs
 import { Row, Col } from 'react-simple-flex-grid';
 import "react-simple-flex-grid/lib/main.css";
@@ -54,8 +57,8 @@ const ViewProfile = () => {
 
 
     return (
-        <div className = "view-posts-container"> 
-            <div className = "blog-posts-title">
+        <div className = "view-users"> 
+            <div className = "users-all-title">
                 Users
             </div>
             <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-searchbar">
@@ -67,20 +70,20 @@ const ViewProfile = () => {
     {leftPosts.map((post: any) => {
 
             return(
-                <Link className = "posts" to = {"/users/" + post.id}>
-                    <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-posts"> 
-                        <div className = "inside-border-posts">
-                            <div className = "post-content" >
-                                <div className = "post-title-view-posts" >
+                <Link className = "users" to = {"/users/" + post.id}>
+                    <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-users"> 
+                        <div className = "inside-border-users">
+                            <div className = "user-content" >
+                                <div className = "user-title-view" >
                                     { post.username }
                                 </div>
-                                <div className = "post-category-view-posts" >
-                                    { post.github}
+                                <div className = "user-social-view" >
+                                    { post.github }
                                 </div>
-                                <div className = "post-category-view-posts" >
+                                <div className = "user-social-view" >
                                     { post.linkedin}
                                 </div>
-                                <div className = "post-category-view-posts" >
+                                <div className = "user-social-view" >
                                     { post.instagram }
                                 </div>
                             </div>
@@ -95,20 +98,20 @@ const ViewProfile = () => {
 <Col span={6}>
     {rightPosts.map((post: any) => {
             return(
-                <Link className = "posts" to = {"/users/" + post.id}>
-                    <motion.div whileHover = {{ scale: 1.05 }}  className = "outside-border-posts"> 
-                        <div className = "inside-border-posts">
-                            <div className = "post-content" >
-                                <div className = "post-title-view-posts" >
+                <Link className = "users" to = {"/users/" + post.id}>
+                  <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-users"> 
+                        <div className = "inside-border-users">
+                            <div className = "user-content" >
+                                <div className = "user-title-view" >
                                     { post.username }
                                 </div>
-                                <div className = "post-category-view-posts" >
-                                    { post.github}
+                                <div className = "user-category-view" >
+                                    { post.github }
                                 </div>
-                                <div className = "post-category-view-posts" >
-                                    { post.linkedin}
+                                <div className = "user-category-view" >
+                                    { post.linkedin }
                                 </div>
-                                <div className = "post-category-view-posts" >
+                                <div className = "user-category-view" >
                                     { post.instagram }
                                 </div>
                             </div>
