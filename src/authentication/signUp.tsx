@@ -5,31 +5,39 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import './signUp.css';
-import { auth, db } from "../firebase/firebase";
+import { auth, db, storage } from "../firebase/firebase";
 
 import {
   collection,
   addDoc,
-  doc
+  doc,
+  updateDoc
 } from "firebase/firestore";
 
 import {motion} from 'framer-motion';
 import { useHistory } from "react-router-dom"
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [user, setUser]: any = useState({});
   const [newUserName, setUserName] = useState("");
   const [newGitHub, setGitHub] = useState("");
   const [newLinkedIn, setLinkedIn] = useState("");
   const [newInstagram, setInstagram] = useState("");
-  var history = useHistory();
   const usersCollectionRef = collection(db, "users");
-  onAuthStateChanged(auth, (currentUser) => {
-    if(currentUser)      
-      setUser(currentUser);
-  });
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
+  const [userID, setUserID]: any = useState(null);
+  const [url, setUrl]: any = useState(null);
+  var history = useHistory();
+
+// File upload
+const onFileChange = async (event: any) => {
+  const file = event.target.files[0];
+  setFile(file);
+  setFileName(file.name);
+};
 
   const register = async () => {
     try {
@@ -39,16 +47,46 @@ const SignUp = () => {
         registerPassword
       ).then(async cred => {
         const post = await addDoc(usersCollectionRef, {username: newUserName, linkedin: newLinkedIn, 
-          github: newGitHub, instagram: newInstagram, user_id: cred.user.uid})
-      }).then(() =>{
-        history.push("/");
-      })
+        github: newGitHub, instagram: newInstagram, user_id: cred.user.uid, profileURL: ""})
+      });
 
-      console.log(user);
     } catch (error: any) {
       console.log(error.message);
     }
   };
+
+  const photo_db_post = async(uid: any, id: any ) => {
+    if (!file) return;
+    // Listen for state changes, errors, and completion of the upload.
+    const storageRef = ref(storage, "profile-photos/" + uid + "/" + "profile_pic" + "/" + fileName);
+    const uploadFile = uploadBytesResumable(storageRef, file);
+    uploadFile.on('state_changed',
+            (snapshot) => {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+                case 'paused':
+                console.log('Upload is paused');
+                break;
+                case 'running':
+                console.log('Upload is running');
+                break;
+            }
+            }, 
+            (error) => {
+                console.log(error);
+            }, 
+            async () => {
+                await getDownloadURL(uploadFile.snapshot.ref).then((downloadURL)=> {
+                  setUrl(downloadURL);
+                }).then(() => {
+                    history.push("/");
+                });
+            },
+
+        );
+  }
 
     return (
       <div>
@@ -58,6 +96,15 @@ const SignUp = () => {
           <div className = "sign-up-slogan">
                 Welcome to the sign up page!
           </div> 
+
+            <div className = "create-photo-slogan">
+                Insert any profile photo Below: 
+            </div> 
+
+            <div>
+                <input type="file" className="input"  onChange = {onFileChange}/>
+            </div>
+
           <div className = "username-box-outside-border">
             <input type = "text" className = "username-box" placeholder = "email..." 
             

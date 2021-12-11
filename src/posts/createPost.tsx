@@ -73,8 +73,6 @@ const onFileChange = async (event: any) => {
     setFileName(file.name);
 };
 
-
-
 const createPost = async () => {
         if (!file) return;
             // Listen for state changes, errors, and completion of the upload.

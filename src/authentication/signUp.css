@@ -8,9 +8,16 @@
 }
 
 .sign-up-slogan {
+    padding-bottom: 20px;
+    color: rgb(0, 0, 0);
+}
+
+
+.create-photo-slogan {
     padding: 2px;
     color: rgb(0, 0, 0);
 }
+
 .username-box {
     width: 150x;
     height: 34px;
