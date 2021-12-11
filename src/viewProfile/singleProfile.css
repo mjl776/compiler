@@ -22,3 +22,27 @@
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
+
+.single-name{
+    padding:5px;
+}
+
+.single-name{
+    padding:5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.single-description{
+    padding:5px;
+}
+
+.profile-link-image {
+    height: 40px;
+    width: 40px;
+}
+
+.single-socials {
+    padding: 10px;
+    font-size: 20px;
+}

@@ -64,7 +64,7 @@ const ViewProfile = () => {
             <motion.div whileHover = {{ scale: 1.05 }} className = "outside-border-searchbar">
                 <input className = "author-searchBar" placeholder="Search for a user ..." />
             </motion.div>
-            <Row>
+<Row>
 
 <Col span={6}>
     {leftPosts.map((post: any) => {
@@ -77,14 +77,11 @@ const ViewProfile = () => {
                                 <div className = "user-title-view" >
                                     { post.username }
                                 </div>
-                                <div className = "user-social-view" >
-                                    { post.github }
+                                <div className = "user-category-view" >
+                                    { post.job }
                                 </div>
-                                <div className = "user-social-view" >
-                                    { post.linkedin}
-                                </div>
-                                <div className = "user-social-view" >
-                                    { post.instagram }
+                                <div className = "user-category-view" >
+                                    { post.profile_description }
                                 </div>
                             </div>
                         </div>
@@ -106,13 +103,10 @@ const ViewProfile = () => {
                                     { post.username }
                                 </div>
                                 <div className = "user-category-view" >
-                                    { post.github }
+                                    { post.job }
                                 </div>
                                 <div className = "user-category-view" >
-                                    { post.linkedin }
-                                </div>
-                                <div className = "user-category-view" >
-                                    { post.instagram }
+                                    { post.profile_description }
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,10 @@ import { db } from "../firebase/firebase"
 import  photo  from "./placeholder.png"
 import "./singleProfile.css"
 import { Link } from 'react-router-dom'
+import { Row, Col } from 'react-simple-flex-grid';
+import Instagram from './instagram.jpg'
+import github from './github.png'
+import linkedin from './linkedin.png'
 
 const SingleProfile = () => {
 
@@ -26,10 +30,15 @@ const SingleProfile = () => {
         <div className = "single-profile-container">
                 <div className = "outside-border-profile"> 
                     <div className = "inside-border-profile">
-                        <div>{"username: " + user.username}</div>
-                        <div> Instragram </div>
-                        <div> Github </div>
-                        <div> LinkedIn </div>
+                        <div className= "single-name">{ user.username }</div>
+                        <div className= "single-job">{"job: " + user.job}</div>
+                        <div className= "single-description">{user.profile_description}</div>
+                        <div className= "single-socials"> Connect with me! </div>
+                        <Row align="center">
+                            <Col span={2}> <a href= {user.instagram}> <img src={ Instagram } className = "profile-link-image" alt= "placeholder"/> </a> </Col>
+                            <Col span={2}> <a href= {user.github}> <img src={ github } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
+                            <Col span={2}> <a href= {user.linkedin}> <img src={ linkedin } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
+                        </Row>
                     </div>
                 </div>
         </div>
