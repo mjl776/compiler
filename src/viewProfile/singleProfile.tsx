@@ -8,6 +8,8 @@ import { Row, Col } from 'react-simple-flex-grid';
 import Instagram from './instagram.jpg'
 import github from './github.png'
 import linkedin from './linkedin.png'
+import { motion } from 'framer-motion'
+
 
 const SingleProfile = () => {
 
@@ -35,9 +37,9 @@ const SingleProfile = () => {
                         <div className= "single-description">{user.profile_description}</div>
                         <div className= "single-socials"> Connect with me! </div>
                         <Row align="center">
-                            <Col span={2}> <a href= {user.instagram}> <img src={ Instagram } className = "profile-link-image" alt= "placeholder"/> </a> </Col>
-                            <Col span={2}> <a href= {user.github}> <img src={ github } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
-                            <Col span={2}> <a href= {user.linkedin}> <img src={ linkedin } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
+                            <Col span={2}> <a href= {user.instagram}> <motion.img whileHover = {{ scale: 1.05 }} src={ Instagram } className = "profile-link-image" alt= "placeholder"/> </a> </Col>
+                            <Col span={2}> <a href= {user.github}> <motion.img whileHover = {{ scale: 1.05 }} src={ github } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
+                            <Col span={2}> <a href= {user.linkedin}> <motion.img whileHover = {{ scale: 1.05 }}src={ linkedin } className = "profile-link-image" alt= "placeholder"/> </a>  </Col>
                         </Row>
                     </div>
                 </div>
